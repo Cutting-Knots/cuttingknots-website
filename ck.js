@@ -27,10 +27,10 @@ document.querySelectorAll("[data-icon]").forEach(el=>{const g=ICONS[el.dataset.i
 /* ---------- site: ticker, reveal, menu, copy ---------- */
 const track=$("track");
 if(track){const KN=LANG==="en"?["MANUAL PROCESSES","SYSTEMS THAT DON'T TALK","SCATTERED DATA","REPORTS BUILT BY HAND","EMAILS SORTED ONE BY ONE","TEN VERSIONS OF ONE EXCEL FILE","SOFTWARE NOBODY DARES TOUCH"]:["PROCESSI MANUALI","SISTEMI CHE NON SI PARLANO","DATI SPARSI","REPORT FATTI A MANO","EMAIL SMISTATE UNA PER UNA","FILE EXCEL IN DIECI VERSIONI","SOFTWARE CHE NESSUNO OSA TOCCARE"];track.innerHTML=[...KN,...KN].map(k=>`<span>${k}</span><i></i>`).join("")}
-if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -10% 0px"});
- document.querySelectorAll(".reveal").forEach(el=>{if(el.getBoundingClientRect().top>innerHeight)io.observe(el)})}
+if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px 12% 0px"});
+ document.querySelectorAll(".reveal,[data-strike]").forEach(el=>{if(el.getBoundingClientRect().top>innerHeight)io.observe(el)})}
 const menuBtn=$("menu-btn"),nav=$("site-nav");
-if(menuBtn&&nav){menuBtn.addEventListener("click",()=>{const o=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",o);menuBtn.textContent=o?"✕ Chiudi":"☰ Menu"})}
+if(menuBtn&&nav){menuBtn.addEventListener("click",()=>{const o=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",o)})}
 document.addEventListener("click",e=>{
  const c=e.target.closest("[data-copy]");if(!c)return;const v=c.dataset.copy,old=c.textContent;
  const done=()=>{c.textContent=L.copied;setTimeout(()=>c.textContent=old,1600)};
