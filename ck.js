@@ -53,6 +53,24 @@ if(document.querySelector("[data-theme-toggle],[data-theme-set]")){
  syncTheme();
 }
 
+/* ---------- header over dark bands ---------- */
+const HEAD=document.querySelector(".site-head");
+if(HEAD){
+ const BANDS=[...document.querySelectorAll(".band")];
+ const upd=()=>{const y=HEAD.getBoundingClientRect().bottom+1;const dark=BANDS.some(b=>{const r=b.getBoundingClientRect();return r.top<=y&&r.bottom>=y});
+  HEAD.classList.toggle("on-dark",dark);document.body.classList.toggle("nav-dark",dark)};
+ let raf=0;addEventListener("scroll",()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;upd()})},{passive:true});addEventListener("resize",upd);upd();
+}
+/* ---------- paragraph that lights up word by word while scrolling ---------- */
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.querySelectorAll("[data-lit]").forEach(el=>{
+ const words=el.textContent.trim().split(/\s+/);el.textContent="";
+ const spans=words.map((w,i)=>{const s=document.createElement("span");s.className="w";s.textContent=w;el.appendChild(s);if(i<words.length-1)el.appendChild(document.createTextNode(" "));return s});
+ if(RM){spans.forEach(s=>s.classList.add("on"));return}
+ const upd=()=>{const r=el.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight*.82-r.top)/(r.height+innerHeight*.3)));const n=Math.round(p*spans.length);spans.forEach((s,i)=>s.classList.toggle("on",i<n))};
+ let raf=0;addEventListener("scroll",()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;upd()})},{passive:true});addEventListener("resize",upd);upd();
+});
+
 const menuBtn=$("menu-btn"),nav=$("site-nav");
 if(menuBtn&&nav){menuBtn.addEventListener("click",()=>{const o=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",o)})}
 document.addEventListener("click",e=>{
