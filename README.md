@@ -23,6 +23,10 @@ Altri file:
 - `sitemap.xml`, `robots.txt`: per i motori di ricerca. Il villaggio è escluso dall'indicizzazione.
 - `vercel.json`: URL senza `.html`, header di sicurezza, cache.
 
+## Tema chiaro e scuro
+
+Il sito segue l'impostazione chiaro/scuro del sistema. Il pulsante sole/luna nella barra in alto cambia tema, e nel footer si può scegliere Automatico, Chiaro o Scuro. La scelta resta salvata nel browser (`localStorage`, chiave `ck-theme`). I colori dei due temi sono i token del design system CuttingKnots (vedi le linee guida del brand, sezione "Web themes").
+
 ## Deploy su Vercel
 
 ### Opzione A: da GitHub (consigliata)
