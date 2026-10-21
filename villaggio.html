@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Villaggio · CuttingKnots</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Outfit:wght@600;700&family=Pixelify+Sans:wght@400;600;700&display=swap">
+
+<link rel="stylesheet" href="/style.css">
+<meta name="description" content="Il villaggio segreto di CuttingKnots.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://cuttingknots.com/villaggio">
+<link rel="alternate" hreflang="it" href="https://cuttingknots.com/villaggio">
+<link rel="alternate" hreflang="en" href="https://cuttingknots.com/village">
+<link rel="alternate" hreflang="x-default" href="https://cuttingknots.com/villaggio">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CuttingKnots">
+<meta property="og:title" content="Villaggio · CuttingKnots">
+<meta property="og:description" content="Il villaggio segreto di CuttingKnots.">
+<meta property="og:url" content="https://cuttingknots.com/villaggio">
+<meta property="og:image" content="https://cuttingknots.com/og-image.png">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0F151B">
+</head>
+<body>
+<div id="game" aria-label="Villaggio CuttingKnots">
+  <canvas id="world" aria-hidden="true"></canvas>
+  <div class="hud-top">
+    <div class="hud-chip"><span class="mark" data-size="22"></span><span>Villaggio</span></div>
+    <div class="hud-right">
+      <div class="hud-row">
+        <div class="hud-chip" title="Edifici visitati"><span>Luoghi <span id="count">0</span>/5</span><span class="pips" id="pips"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <button class="hud-btn" id="howto-open" aria-label="Come si gioca">?</button>
+        <a class="hud-btn" id="exit-game" href="/" style="text-decoration:none">✕ Esci</a>
+      </div>
+      <canvas id="minimap" width="96" height="72" aria-hidden="true"></canvas>
+    </div>
+  </div>
+  <div class="bottom-ui"><div id="toast" hidden></div><div id="prompt" hidden><kbd id="prompt-key">E</kbd><span id="prompt-text"></span></div></div>
+  <div id="touch" aria-hidden="true">
+    <div class="dpad"><button data-dir="up" tabindex="-1">▲</button><button data-dir="left" tabindex="-1">◀</button><button data-dir="right" tabindex="-1">▶</button><button data-dir="down" tabindex="-1">▼</button></div>
+    <button id="btn-a" tabindex="-1">A</button>
+  </div>
+  <div id="banner" aria-live="polite">Sciogliamo <span>nodi.</span></div>
+  <div id="flash"></div>
+  <section id="dialog" class="px-box" role="dialog" aria-labelledby="dlg-title" hidden>
+    <div class="dlg-head"><div><p class="eyebrow" id="dlg-eyebrow"></p><h2 id="dlg-title"></h2></div><button class="pxbtn small ghost" id="dlg-close">Chiudi <kbd>Esc</kbd></button></div>
+    <div class="dlg-body" id="dlg-body"></div>
+  </section>
+  <div id="howto" role="dialog" aria-modal="true" aria-labelledby="howto-title">
+    <div class="howto-card px-box">
+      <p class="eyebrow">Hai trovato il villaggio segreto</p>
+      <h2 id="howto-title">Come si gioca</h2>
+      <div class="ctrls" id="ctrl-keys">
+        <div class="ctrl"><div class="wasd"><span class="k w">W</span><span class="k">A</span><span class="k">S</span><span class="k">D</span></div><span>Muoviti<small>oppure usa le frecce ← ↑ → ↓</small></span></div>
+        <div class="ctrl"><div class="keys"><span class="k acc">E</span></div><span>Entra, parla, interagisci<small>anche Invio o Spazio</small></span></div>
+        <div class="ctrl"><div class="keys"><span class="k wide">Shift</span></div><span>Tieni premuto per correre</span></div>
+        <div class="ctrl"><div class="keys"><span class="k wide">Esc</span></div><span>Chiudi una finestra<small>premilo di nuovo per tornare al sito</small></span></div>
+      </div>
+      <div class="ctrls" id="ctrl-touch" hidden>
+        <div class="ctrl"><div class="keys"><div class="mini-dpad"><i></i><i></i><i></i><i></i></div></div><span>Muoviti<small>croce in basso a sinistra</small></span></div>
+        <div class="ctrl"><div class="keys"><div class="mini-a">A</div></div><span>Entra, parla, interagisci<small>tasto in basso a destra</small></span></div>
+        <div class="ctrl"><div class="keys"><span class="k wide">✕</span></div><span>Torna al sito<small>in alto a destra</small></span></div>
+      </div>
+      <div class="goal"><b>Obiettivo</b>Visita i 5 edifici e taglia il nodo in piazza. Quando compare <span class="excl" aria-hidden="true"></span> sopra il personaggio, puoi interagire con quello che hai davanti.</div>
+      <button class="pxbtn big" id="howto-go">Inizia</button>
+    </div>
+  </div>
+</div>
+<script src="/ck.js"></script>
+</body>
+</html>

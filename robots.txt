@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /villaggio
+Disallow: /village
+
+Sitemap: https://cuttingknots.com/sitemap.xml
