@@ -9,7 +9,8 @@ Sito statico (HTML, CSS, JS, nessun build step) in italiano e inglese, pronto pe
 | Home | `/` (index.html) | `/en` (en.html) |
 | Chi siamo / About | `/chi-siamo` | `/about` |
 | Servizi / Services | `/servizi` | `/services` |
-| Progetti / Projects | `/progetti` | `/projects` |
+| Prodotti / Products | `/prodotti` | `/products` |
+| Esperienze / Experience | `/esperienze` | `/experience` |
 | Contatti / Contact | `/contatti` | `/contact` |
 | Easter egg | `/villaggio` | `/village` |
 
