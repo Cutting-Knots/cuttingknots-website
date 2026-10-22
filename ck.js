@@ -3,9 +3,9 @@
 "use strict";
 const $=id=>document.getElementById(id);
 const LANG=(document.documentElement.lang||"").slice(0,2)==="en"?"en":"it";
-const L={it:{openMenu:"Apri il menu",closeMenu:"Chiudi il menu",pause:"Metti in pausa le immagini",play:"Riprendi le immagini",toDark:"Passa al tema scuro",toLight:"Passa al tema chiaro",copied:"Copiato",selected:"Selezionato: premi Ctrl+C",enter:"Entra · ",talk:"Parla con Bit",cut:"Taglia il nodo",look:"Guarda il nodo tagliato",home:"/",
+const L={it:{openMenu:"Apri il menu",closeMenu:"Chiudi il menu",pause:"Metti in pausa la demo",play:"Riprendi la demo",toDark:"Passa al tema scuro",toLight:"Passa al tema chiaro",copied:"Copiato",selected:"Selezionato: premi Ctrl+C",enter:"Entra · ",talk:"Parla con Bit",cut:"Taglia il nodo",look:"Guarda il nodo tagliato",home:"/",
  done:"Villaggio esplorato. Il prossimo nodo è il tuo: scrivici dall'Ufficio Postale."},
- en:{openMenu:"Open menu",closeMenu:"Close menu",pause:"Pause the images",play:"Play the images",toDark:"Switch to dark theme",toLight:"Switch to light theme",copied:"Copied",selected:"Selected: press Ctrl+C",enter:"Enter · ",talk:"Talk to Bit",cut:"Cut the knot",look:"Look at the cut knot",home:"/en",
+ en:{openMenu:"Open menu",closeMenu:"Close menu",pause:"Pause the demo",play:"Play the demo",toDark:"Switch to dark theme",toLight:"Switch to light theme",copied:"Copied",selected:"Selected: press Ctrl+C",enter:"Enter · ",talk:"Talk to Bit",cut:"Cut the knot",look:"Look at the cut knot",home:"/en",
  done:"Village explored. The next knot is yours: write to us from the Post Office."}}[LANG];
 /* ---------- brand mark (symbol paths from the CuttingKnots kit) ---------- */
 const KNOT_D="M147.43,253.64C137.82,252.41 129.33,249.34 121.62,244.32C118.18,242.07 116.06,240.34 113.05,237.29C109.86,234.05 107.93,231.67 105.59,228.10C103.55,224.96 99.75,217.51 99.75,216.63C99.75,216.03 100.00,215.80 109.00,208.33C110.99,206.68 114.03,204.27 115.75,202.99C117.47,201.70 119.63,199.94 120.55,199.08C121.52,198.17 122.37,197.56 122.57,197.64C122.76,197.71 123.57,199.31 124.37,201.20C127.97,209.69 130.98,214.76 134.49,218.25C138.37,222.11 143.25,224.76 148.75,225.97C151.25,226.53 155.37,226.78 157.52,226.51C161.94,225.96 167.46,223.80 170.87,221.29C173.84,219.10 177.61,215.12 179.63,212.04C180.31,211.01 180.39,210.96 181.36,211.07C181.92,211.13 183.28,211.54 184.38,211.97C186.68,212.89 192.18,214.76 194.38,215.38C198.40,216.52 204.59,217.73 206.45,217.74C207.42,217.75 208.25,218.14 208.25,218.58C208.25,218.75 207.79,219.78 207.23,220.88C203.62,227.93 197.90,235.16 191.88,240.24C189.23,242.47 183.38,246.44 180.88,247.70C175.78,250.26 168.58,252.49 162.47,253.38C158.76,253.93 150.77,254.06 147.43,253.64ZM216.75,210.24C213.05,209.97 203.47,208.68 199.75,207.96C197.03,207.43 190.47,205.81 188.34,205.15C174.27,200.76 171.09,199.55 162.72,195.37C158.48,193.26 152.05,189.69 148.86,187.68C142.10,183.42 139.50,181.47 139.51,180.67C139.52,180.30 140.27,179.47 141.82,178.12C144.23,176.02 150.32,170.43 156.62,164.53C159.18,162.14 160.56,161.02 160.96,161.01C161.29,161.00 163.36,162.20 165.83,163.84C171.17,167.37 174.19,169.07 179.06,171.30C186.59,174.74 194.64,177.70 199.93,178.97C200.45,179.10 202.49,179.61 204.46,180.11C208.58,181.15 211.45,181.49 216.38,181.49C225.04,181.49 234.31,179.49 240.86,176.21C248.77,172.24 254.65,167.07 259.54,159.78C263.20,154.32 265.18,149.08 266.12,142.37C266.91,136.72 266.41,132.12 264.33,126.00C262.98,122.01 261.21,119.15 257.83,115.48C254.16,111.51 252.01,109.93 248.25,108.42C243.87,106.67 241.75,106.11 237.75,105.66C235.24,105.37 235.12,105.33 235.05,104.74C234.93,103.79 234.20,101.96 232.40,98.02C231.49,96.03 230.75,94.15 230.75,93.84C230.75,93.43 233.24,90.72 239.65,84.17C244.54,79.16 248.81,74.92 249.13,74.75C249.85,74.36 250.70,74.57 255.06,76.16C266.43,80.32 276.14,87.17 284.07,96.61C295.17,109.84 300.38,127.88 298.25,145.75C297.53,151.82 296.66,155.55 294.54,161.76C292.92,166.50 290.29,171.78 287.07,176.74C281.78,184.88 273.60,192.85 264.21,199.01C261.17,201.01 253.53,204.73 249.88,206.00C243.81,208.10 237.33,209.47 231.00,209.98C226.07,210.38 220.15,210.48 216.75,210.24ZM50.12,192.95C49.16,192.67 46.97,192.00 45.25,191.45C37.20,188.88 29.98,184.23 22.61,176.88C15.27,169.55 11.19,162.39 8.65,152.35C5.68,140.60 7.57,125.10 13.28,114.30C14.63,111.75 18.03,106.61 19.99,104.15C23.44,99.83 28.04,95.66 33.25,92.14C36.55,89.90 43.10,86.77 47.25,85.43C51.97,83.92 54.39,83.37 58.78,82.84C62.52,82.39 73.52,82.19 73.90,82.57C74.01,82.68 73.68,84.48 73.17,86.57C71.45,93.62 71.08,101.24 72.15,107.75C72.39,109.19 72.59,110.71 72.60,111.11L72.62,111.85L69.38,112.52C63.18,113.79 60.09,114.86 55.95,117.16C46.47,122.44 41.06,129.96 39.99,139.30C39.40,144.52 40.86,150.14 43.88,154.26C45.11,155.94 47.91,158.50 50.16,160.02C54.13,162.70 60.45,165.15 65.38,165.91C69.06,166.48 69.00,166.45 69.79,168.00C70.62,169.65 72.25,173.75 72.25,174.19C72.25,174.36 67.97,178.75 62.73,183.94C55.29,191.32 53.07,193.38 52.54,193.41C52.18,193.44 51.09,193.23 50.12,192.95ZM215.50,168.97C211.51,168.77 208.76,168.33 204.22,167.13C198.51,165.63 196.39,164.95 195.85,164.46C195.56,164.20 194.78,162.78 194.11,161.30C191.84,156.32 189.81,153.14 186.04,148.67C183.12,145.20 173.59,135.73 168.50,131.24C165.96,128.99 162.24,125.61 160.25,123.73C152.12,116.07 150.00,114.38 145.86,112.30C140.33,109.53 132.80,107.42 127.19,107.08C125.84,106.99 124.58,106.80 124.38,106.65C124.18,106.50 123.91,105.70 123.77,104.88C123.63,104.05 123.23,101.86 122.87,100.00C121.92,95.10 121.90,94.81 122.38,92.49C123.23,88.31 125.15,82.39 125.98,81.41C126.32,81.01 126.60,80.97 128.25,81.12C140.47,82.22 155.15,87.05 163.72,92.81C168.00,95.68 178.18,104.49 185.75,111.87C188.43,114.49 193.18,119.02 196.30,121.96C202.66,127.92 205.19,130.61 209.34,135.82C213.58,141.14 216.55,145.98 219.23,151.94C221.05,155.99 223.00,161.95 223.89,166.20C224.27,167.99 224.28,168.33 223.98,168.61C223.53,169.04 219.97,169.19 215.50,168.97ZM100.06,145.31C95.03,139.25 89.82,130.73 87.58,124.90C84.29,116.31 82.85,108.17 82.90,98.25C82.95,86.51 84.76,76.77 88.70,67.00C96.24,48.31 110.82,33.67 129.12,26.41C135.83,23.75 142.19,22.32 149.88,21.75C162.76,20.80 177.74,24.77 188.52,32.02C194.73,36.19 201.25,42.68 205.04,48.47C205.71,49.48 206.25,50.42 206.25,50.55C206.25,50.83 203.75,53.18 199.25,57.14C197.39,58.77 193.53,62.30 190.66,64.99C187.79,67.68 185.20,69.91 184.90,69.95C184.46,70.01 184.11,69.65 183.12,68.07C179.85,62.91 175.58,58.19 172.09,55.91C169.31,54.09 164.91,52.12 161.62,51.22C158.71,50.42 158.48,50.40 153.62,50.39C148.01,50.37 146.62,50.60 142.00,52.24C135.60,54.53 131.54,57.16 126.24,62.48C121.91,66.82 119.84,69.65 116.90,75.26C112.26,84.12 109.96,95.62 111.11,104.24C112.15,112.10 114.76,119.31 119.06,126.18C119.60,127.04 120.00,127.95 119.96,128.21C119.86,128.75 101.80,146.50 101.34,146.50C101.18,146.50 100.60,145.97 100.06,145.31Z";
@@ -53,22 +53,92 @@ if(document.querySelector("[data-theme-toggle],[data-theme-set]")){
  syncTheme();
 }
 
-/* ---------- header over dark bands ---------- */
+/* ---------- header: capsule on scroll, dark tokens over the sky ---------- */
 const HEAD=document.querySelector(".site-head");
-if(HEAD){
- const BANDS=[...document.querySelectorAll(".band")];
- const upd=()=>{const y=HEAD.getBoundingClientRect().bottom+1;const dark=BANDS.some(b=>{const r=b.getBoundingClientRect();return r.top<=y&&r.bottom>=y});
-  HEAD.classList.toggle("on-dark",dark);document.body.classList.toggle("nav-dark",dark)};
- let raf=0;addEventListener("scroll",()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;upd()})},{passive:true});addEventListener("resize",upd);upd();
-}
 const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let updHead=()=>{};
+if(HEAD){
+ const STAGES=[...document.querySelectorAll(".stage")];
+ updHead=()=>{
+  HEAD.classList.toggle("scrolled",scrollY>24);
+  const y=HEAD.querySelector(".head-in").getBoundingClientRect().bottom-4;
+  const dark=!document.body.classList.contains("menu-open")&&STAGES.some(b=>{const r=b.getBoundingClientRect();return r.top<=y&&r.bottom>=y});
+  HEAD.classList.toggle("on-dark",dark);
+ };
+ let raf=0;addEventListener("scroll",()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;updHead()})},{passive:true});addEventListener("resize",updHead);updHead();
+}
 const menuBtn=$("menu-btn"),nav=$("site-nav");
 if(menuBtn&&nav){
- const setMenu=o=>{nav.classList.toggle("open",o);menuBtn.setAttribute("aria-expanded",String(o));menuBtn.setAttribute("aria-label",o?L.closeMenu:L.openMenu);document.body.classList.toggle("menu-open",o)};
+ const setMenu=o=>{nav.classList.toggle("open",o);menuBtn.setAttribute("aria-expanded",String(o));menuBtn.setAttribute("aria-label",o?L.closeMenu:L.openMenu);document.body.classList.toggle("menu-open",o);updHead()};
  menuBtn.addEventListener("click",()=>setMenu(!nav.classList.contains("open")));
  nav.addEventListener("click",e=>{if(e.target.closest("a"))setMenu(false)});
  addEventListener("keydown",e=>{if(e.key==="Escape"&&nav.classList.contains("open")){setMenu(false);menuBtn.focus()}});
  const wide=matchMedia("(min-width: 861px)");(wide.addEventListener?wide.addEventListener("change",e=>{if(e.matches)setMenu(false)}):0);
+}
+/* ---------- product demo: tabs with autoplay and progress ---------- */
+document.querySelectorAll("[data-demo]").forEach(demo=>{
+ const tabs=[...demo.querySelectorAll(".demo-tab")],wins=[...demo.querySelectorAll(".win")],play=demo.querySelector(".demo-play");
+ if(!tabs.length)return;
+ const T=6500;demo.style.setProperty("--demo-t",T+"ms");demo.classList.add("paused");
+ let i=0,remaining=T,started=0,timer=0,userPaused=RM,visible=false,inView=false,gate=true;
+ const running=()=>!userPaused&&visible;
+ const sync=()=>{visible=inView&&gate;visible?go():stop()};
+ /* the home hero closes the gate while the demo screen is still folding in */
+ demo.ckGate=v=>{if(gate!==v){gate=v;sync()}};
+ const stop=()=>{if(timer){clearTimeout(timer);timer=0;remaining-=performance.now()-started}demo.classList.add("paused")};
+ const go=()=>{if(!running()){stop();return}demo.classList.remove("paused");clearTimeout(timer);started=performance.now();timer=setTimeout(()=>{timer=0;show(i+1)},Math.max(0,remaining))};
+ const show=(n,focus)=>{
+  i=(n+tabs.length)%tabs.length;remaining=T;clearTimeout(timer);timer=0;
+  tabs.forEach((t,k)=>{const on=k===i;t.setAttribute("aria-selected",String(on));t.tabIndex=on?0:-1;const bar=t.querySelector(".bar");if(bar){bar.style.animation="none";void bar.offsetWidth;bar.style.animation=""}});
+  wins.forEach((w,k)=>{w.classList.toggle("on",k===i);w.setAttribute("aria-hidden",String(k!==i))});
+  if(focus)tabs[i].focus();
+  go();
+ };
+ tabs.forEach((t,k)=>{t.addEventListener("click",()=>show(k));t.addEventListener("keydown",e=>{if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();show(i+(e.key==="ArrowRight"?1:-1),true)}})});
+ if(play){
+  const lab=()=>{play.setAttribute("aria-pressed",String(userPaused));play.setAttribute("aria-label",userPaused?L.play:L.pause)};lab();
+  play.addEventListener("click",()=>{userPaused=!userPaused;lab();userPaused?stop():go()});
+ }
+ if("IntersectionObserver" in window){new IntersectionObserver(es=>{inView=es[0].isIntersecting;sync()},{threshold:.35}).observe(demo)}else{inView=true;sync()}
+});
+/* ---------- home hero: the sky folds into the demo screen while the hero is pinned ---------- */
+const HERO=document.querySelector("[data-hero]");
+if(HERO){
+ const pin=HERO.querySelector(".hero-pin"),desk=HERO.querySelector(".desk"),demoEl=HERO.querySelector("[data-demo]"),copy=HERO.querySelector(".hero-copy");
+ const MQM=matchMedia("(min-width: 861px) and (min-height: 600px) and (prefers-reduced-motion: no-preference)");
+ const clamp=v=>v<0?0:v>1?1:v,ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+ const gate=v=>{if(demoEl&&demoEl.ckGate)demoEl.ckGate(v)};
+ let on=false,top0=0,dist=1,cur={c:0,q:0,d:0},raf=0;
+ const set=(k,v)=>HERO.style.setProperty(k,v);
+ const frame=()=>{
+  raf=0;if(!on)return;
+  const p=clamp((scrollY-top0)/dist);
+  const c=clamp(p/.3),q=ease(clamp((p-.06)/.58)),d=ease(clamp((p-.44)/.28));
+  cur={c,q,d};set("--c",c.toFixed(4));set("--q",q.toFixed(4));set("--d",d.toFixed(4));
+  HERO.classList.toggle("copy-off",c>.5);HERO.classList.toggle("desk-on",d>.6);
+  gate(d>.97);
+ };
+ const measure=()=>{
+  if(!on)return;
+  const pr=pin.getBoundingClientRect(),dr=desk.getBoundingClientRect();
+  set("--ct",Math.round(dr.top-pr.top)+"px");set("--cl",Math.round(dr.left-pr.left)+"px");
+  set("--cr",Math.round(pr.right-dr.right)+"px");set("--cb",Math.round(pr.bottom-dr.bottom)+"px");
+  top0=HERO.getBoundingClientRect().top+scrollY;dist=Math.max(1,HERO.offsetHeight-pin.offsetHeight);
+  frame();
+ };
+ const mode=()=>{
+  on=MQM.matches;ROOT.classList.toggle("morph",on);
+  if(on){measure()}else{["--c","--q","--d","--ct","--cl","--cr","--cb"].forEach(k=>HERO.style.removeProperty(k));HERO.classList.remove("copy-off","desk-on");gate(true)}
+ };
+ addEventListener("scroll",()=>{if(on&&!raf)raf=requestAnimationFrame(frame)},{passive:true});
+ addEventListener("resize",()=>{if(on)measure()});
+ (MQM.addEventListener?MQM.addEventListener("change",mode):MQM.addListener(mode));
+ /* keyboard: moving focus into the demo shows it, moving back to the hero copy shows the copy */
+ if(demoEl)demoEl.addEventListener("focusin",()=>{if(on&&cur.d<.99)scrollTo({top:top0+dist*.82,behavior:"instant"})});
+ if(copy)copy.addEventListener("focusin",()=>{if(on&&cur.c>0)scrollTo({top:top0,behavior:"instant"})});
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(on)measure()});
+ addEventListener("load",()=>{if(on)measure()});
+ mode();
 }
 /* media reel: pause / play */
 document.querySelectorAll("[data-reel]").forEach(r=>{const t=r.querySelector(".reel-toggle");if(!t)return;

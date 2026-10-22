@@ -17,6 +17,7 @@ Sito statico (HTML, CSS, JS, nessun build step) in italiano e inglese, pronto pe
 Altri file:
 
 - `style.css`: stile del sito. `game.css`: stile pixel del solo easter egg. `ck.js`: script condiviso.
+- `img/`: il cielo del brand (`horizon-1200.jpg`, `horizon-2400.jpg`) e le schermate dei prodotti.
 - `404.html`: pagina di errore bilingue.
 - `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `android-chrome-*.png`, `site.webmanifest`: icone.
 - `og-image.png`: anteprima per i link condivisi (1200×630).
