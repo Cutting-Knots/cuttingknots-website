@@ -92,9 +92,13 @@ main:focus{outline:none}
 .site-head{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;pointer-events:none}
 .head-in{pointer-events:auto;position:relative;display:flex;align-items:center;gap:20px;width:calc(100% - 24px);max-width:1160px;height:var(--nav-h);margin:0 auto;
   padding:0 max(8px,env(safe-area-inset-left,0px));border-radius:999px;color:var(--fg);
-  transition:max-width .45s cubic-bezier(.2,.8,.2,1),height .35s,margin .35s,padding .35s,background .3s,box-shadow .3s}
-.site-head.scrolled .head-in{max-width:900px;height:52px;margin-top:12px;padding:0 8px 0 20px;background:var(--capsule);
-  box-shadow:inset 0 0 0 1px var(--ring);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%)}
+  transition:max-width .45s cubic-bezier(.2,.8,.2,1),height .35s,margin .35s,padding .35s}
+/* the capsule is drawn by a pseudo-element: a backdrop-filter on .head-in itself would make it the containing block
+   of the fixed phone menu, which would then be squeezed into the capsule */
+.head-in::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;background:var(--capsule);box-shadow:inset 0 0 0 1px var(--ring);
+  -webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);opacity:0;transition:opacity .3s}
+.site-head.scrolled .head-in{max-width:900px;height:52px;margin-top:12px;padding:0 8px 0 20px}
+.site-head.scrolled .head-in::before{opacity:1}
 .logo{display:flex;align-items:center;color:var(--logo-ink);text-decoration:none;flex-shrink:0}
 .logo svg{display:block;height:22px;width:auto}
 #site-nav{display:flex;align-items:center;margin:0 auto}
@@ -467,14 +471,16 @@ body.menu-open{overflow:hidden}
 }
 @media (max-width:860px){
   :root{--nav-h:52px}
-  .head-in,.site-head.scrolled .head-in{max-width:none;width:calc(100% - 20px);height:52px;margin-top:10px;padding:0 6px 0 16px;background:var(--capsule);box-shadow:inset 0 0 0 1px var(--ring);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);gap:10px}
+  .head-in,.site-head.scrolled .head-in{max-width:none;width:calc(100% - 20px);height:52px;margin-top:10px;padding:0 6px 0 16px;gap:10px}
+  .head-in::before{opacity:1}
   .head-tools{margin-left:auto}
   .head-tools .lang,.head-tools .theme-btn{display:none}
   .menu-btn{display:grid;place-items:center;width:40px;height:40px;border-radius:50%}
-  #site-nav{position:fixed;inset:0;z-index:-1;margin:0;flex-direction:column;align-items:stretch;justify-content:space-between;gap:32px;background:var(--bg);color:var(--fg);overflow-y:auto;
+  #site-nav{position:fixed;inset:0;z-index:-2;margin:0;flex-direction:column;align-items:stretch;justify-content:space-between;gap:32px;background:var(--bg);color:var(--fg);overflow-y:auto;
     padding:calc(env(safe-area-inset-top,0px) + 84px) max(22px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) max(22px,env(safe-area-inset-left,0px));
     visibility:hidden;opacity:0;transition:opacity .25s,visibility 0s linear .25s}
   #site-nav.open{visibility:visible;opacity:1;transition:opacity .25s}
+  body.menu-open .head-tools{visibility:hidden}
   .nav-links{flex-direction:column;gap:2px;font-size:30px}
   .nav-links a{font-family:var(--f-head);font-weight:500;letter-spacing:-.03em;color:var(--fg);padding:8px 0}
   .nav-links a[aria-current="page"]{color:var(--accent-text)}
