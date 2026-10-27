@@ -69,7 +69,7 @@ if(HEAD){
 }
 const menuBtn=$("menu-btn"),nav=$("site-nav");
 if(menuBtn&&nav){
- const setMenu=o=>{nav.classList.toggle("open",o);menuBtn.setAttribute("aria-expanded",String(o));menuBtn.setAttribute("aria-label",o?L.closeMenu:L.openMenu);document.body.classList.toggle("menu-open",o);updHead()};
+ const setMenu=o=>{nav.classList.toggle("open",o);menuBtn.setAttribute("aria-expanded",String(o));menuBtn.setAttribute("aria-label",o?L.closeMenu:L.openMenu);document.body.classList.toggle("menu-open",o);document.querySelectorAll("main,.site-foot,.skip").forEach(el=>{el.inert=o});updHead()};
  menuBtn.addEventListener("click",()=>setMenu(!nav.classList.contains("open")));
  nav.addEventListener("click",e=>{if(e.target.closest("a"))setMenu(false)});
  addEventListener("keydown",e=>{if(e.key==="Escape"&&nav.classList.contains("open")){setMenu(false);menuBtn.focus()}});
@@ -146,9 +146,11 @@ document.querySelectorAll("[data-reel]").forEach(r=>{const t=r.querySelector(".r
 /* local navigation: highlight the section in view */
 document.querySelectorAll("[data-spy]").forEach(box=>{
  const links=[...box.querySelectorAll('a[href^="#"]')],secs=links.map(a=>document.getElementById(a.getAttribute("href").slice(1))).filter(Boolean);
- if(!("IntersectionObserver" in window)||!secs.length)return;
- const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.setAttribute("aria-current",String(a.getAttribute("href")==="#"+e.target.id)))}),{rootMargin:"-45% 0px -50% 0px"});
- secs.forEach(s=>io.observe(s));
+ if(!secs.length)return;
+ /* the current section is the last one whose top has passed the middle of the screen; none above the first */
+ let raf=0;const spy=()=>{raf=0;const mid=innerHeight*.45;let cur=null;secs.forEach(s=>{if(s.getBoundingClientRect().top<=mid)cur=s});
+  links.forEach(a=>a.setAttribute("aria-current",String(!!cur&&a.getAttribute("href")==="#"+cur.id)))};
+ addEventListener("scroll",()=>{if(!raf)raf=requestAnimationFrame(spy)},{passive:true});addEventListener("resize",spy);spy();
 });
 document.addEventListener("click",e=>{
  const c=e.target.closest("[data-copy]");if(!c)return;const v=c.dataset.copy,old=c.textContent;
