@@ -153,9 +153,12 @@ document.querySelectorAll("[data-spy]").forEach(box=>{
  addEventListener("scroll",()=>{if(!raf)raf=requestAnimationFrame(spy)},{passive:true});addEventListener("resize",spy);spy();
 });
 document.addEventListener("click",e=>{
- const c=e.target.closest("[data-copy]");if(!c)return;const v=c.dataset.copy,old=c.textContent;
- const done=()=>{c.textContent=L.copied;setTimeout(()=>c.textContent=old,1600)};
- const sel=()=>{const a=c.parentElement.querySelector(".addr");if(!a)return;const r=document.createRange();r.selectNodeContents(a);const s=getSelection();s.removeAllRanges();s.addRange(r);c.textContent=L.selected};
+ const c=e.target.closest("[data-copy]");if(!c)return;const v=c.dataset.copy,old=c.dataset.label||(c.dataset.label=c.textContent);
+ const box=c.closest(".copt,.mailbox,.mail")||c.parentElement,live=box.querySelector("[data-copy-status]");
+ /* the button text changes for sighted users, the status region tells screen readers */
+ const say=t=>{c.textContent=t;if(live){live.textContent="";setTimeout(()=>{live.textContent=t===L.copied?L.copied+": "+v:t},30)}clearTimeout(c._t);c._t=setTimeout(()=>{c.textContent=old;if(live)live.textContent=""},2600)};
+ const done=()=>say(L.copied);
+ const sel=()=>{const a=box.querySelector(".addr");if(!a)return;const r=document.createRange();r.selectNodeContents(a);const s=getSelection();s.removeAllRanges();s.addRange(r);say(L.selected)};
  try{navigator.clipboard.writeText(v).then(done,sel)}catch(err){sel()}
 });
 
