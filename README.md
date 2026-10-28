@@ -21,7 +21,9 @@ Altri file:
 - `404.html`: pagina di errore bilingue.
 - `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `android-chrome-*.png`, `site.webmanifest`: icone.
 - `og-image.png`: anteprima per i link condivisi (1200×630).
-- `sitemap.xml`, `robots.txt`: per i motori di ricerca. Il villaggio è escluso dall'indicizzazione.
+- `sitemap.xml`, `robots.txt`: per i motori di ricerca e gli assistenti IA (crawler elencati in modo esplicito). Il villaggio è escluso dall'indicizzazione.
+- `llms.txt`: riassunto del sito per gli assistenti IA (ChatGPT, Claude, Perplexity…). Va aggiornato quando cambiano servizi o stato dei prodotti.
+- Ogni pagina contiene dati strutturati schema.org (JSON-LD): organizzazione, sito, servizi, prodotti, domande frequenti.
 - `vercel.json`: URL senza `.html`, header di sicurezza, cache.
 
 ## Tema chiaro e scuro
