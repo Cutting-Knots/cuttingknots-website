@@ -1,6 +1,6 @@
 # CuttingKnots
 
-> CuttingKnots is an Italian technology partner for companies. It offers two things with equal weight: (1) IT consulting, systems integration and custom software, starting from a concrete business problem; (2) its own software products, each at a clearly stated stage of development. The site is bilingual (Italian at /, English at /en). Contact: info@cuttingknots.com (reply within two working days).
+> CuttingKnots is an Italian technology partner for companies. It offers two things with equal weight: (1) IT consulting, systems integration and custom software, starting from a concrete business problem; (2) its own software products, each at a clearly stated stage of development. The site is bilingual (Italian at /, English at /en). Contact: info@cuttingknots.com (reply within two working days). LinkedIn: https://www.linkedin.com/company/cutting-knots LinkedIn: https://www.linkedin.com/company/cutting-knots
 
 Key facts, stated as on the site:
 - Problems addressed: manual and repetitive work (automation, also with AI: reading documents, extracting and checking data); systems that don't talk (integration between ERP, PLM and business systems such as SAP and Teamcenter); processes no tool covers (custom web applications and Mendix low-code); data that is hard to query (plain-language questions to databases, conversion to common standards such as OMOP); choosing technologies and vendors.
