@@ -13,20 +13,20 @@ Key facts, stated as on the site:
 - Experience: six projects delivered by people on the team in previous roles (not CuttingKnots clients or commissions), in automotive, healthcare, events and research. Team background also includes banking and finance projects.
 
 ## Pages (English)
-- [Home](https://cuttingknots.com/en): what CuttingKnots does, the two ways to work with it, evidence and FAQ
-- [Services](https://cuttingknots.com/services): problems addressed, what is done, expected outcome, how it starts
-- [Products](https://cuttingknots.com/products): who each product is for, what it does today, status, next step
-- [Experience](https://cuttingknots.com/experience): six team projects with context, problem, what was done and result
-- [About](https://cuttingknots.com/about): the team and how it works
-- [Contact](https://cuttingknots.com/contact): email and what to write
+- [Home](https://www.cuttingknots.com/en): what CuttingKnots does, the two ways to work with it, evidence and FAQ
+- [Services](https://www.cuttingknots.com/services): problems addressed, what is done, expected outcome, how it starts
+- [Products](https://www.cuttingknots.com/products): who each product is for, what it does today, status, next step
+- [Experience](https://www.cuttingknots.com/experience): six team projects with context, problem, what was done and result
+- [About](https://www.cuttingknots.com/about): the team and how it works
+- [Contact](https://www.cuttingknots.com/contact): email and what to write
 
 ## Pagine (italiano)
-- [Home](https://cuttingknots.com/): cosa fa CuttingKnots, i due modi di lavorare insieme, prove concrete e domande frequenti
-- [Servizi](https://cuttingknots.com/servizi): problemi, interventi, obiettivi e come si comincia
-- [Prodotti](https://cuttingknots.com/prodotti): a chi serve ogni prodotto, cosa fa oggi, stato e prossimo passo
-- [Esperienze](https://cuttingknots.com/esperienze): sei progetti del team in precedenti realtà lavorative
-- [Chi siamo](https://cuttingknots.com/chi-siamo): il team e come lavora
-- [Contatti](https://cuttingknots.com/contatti): email e cosa scrivere
+- [Home](https://www.cuttingknots.com/): cosa fa CuttingKnots, i due modi di lavorare insieme, prove concrete e domande frequenti
+- [Servizi](https://www.cuttingknots.com/servizi): problemi, interventi, obiettivi e come si comincia
+- [Prodotti](https://www.cuttingknots.com/prodotti): a chi serve ogni prodotto, cosa fa oggi, stato e prossimo passo
+- [Esperienze](https://www.cuttingknots.com/esperienze): sei progetti del team in precedenti realtà lavorative
+- [Chi siamo](https://www.cuttingknots.com/chi-siamo): il team e come lavora
+- [Contatti](https://www.cuttingknots.com/contatti): email e cosa scrivere
 
 ## Optional
-- [Sitemap](https://cuttingknots.com/sitemap.xml)
+- [Sitemap](https://www.cuttingknots.com/sitemap.xml)
