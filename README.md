@@ -62,11 +62,17 @@ vercel --prod          # pubblica in produzione
 
 1. Vercel → progetto → **Settings → Domains** → aggiungi `cuttingknots.com` e `www.cuttingknots.com`.
 2. Dal pannello del registrar del dominio imposta i record DNS che Vercel mostra (di solito un record `A` per il dominio principale e un `CNAME` per `www`).
-3. Imposta `www.cuttingknots.com` come redirect verso `cuttingknots.com`.
+3. Usa `www.cuttingknots.com` come dominio principale e imposta `cuttingknots.com` come redirect permanente verso `www.cuttingknots.com`, conservando percorso e query string.
+
+Il dominio canonico del sito è `https://www.cuttingknots.com`. La regola in `vercel.json` reindirizza soltanto l'host `cuttingknots.com` con stato **308**; gli URL di anteprima Vercel non sono coinvolti. Controlla che anche **Settings → Domains** abbia lo stesso verso: un redirect di dominio configurato al contrario può creare un ciclo.
 
 Attenzione: la posta `info@cuttingknots.com` usa i record `MX` del dominio. Quando modifichi i DNS **non toccare i record MX** (e gli eventuali TXT di SPF/DKIM), altrimenti l'email smette di funzionare.
 
-Se il sito andrà su un dominio diverso, cerca e sostituisci `https://cuttingknots.com` in tutti i file `.html`, in `sitemap.xml` e in `robots.txt`.
+Se il sito andrà su un dominio diverso, aggiorna insieme canonical, hreflang, metadati social e JSON-LD nei file `.html`, gli URL in `sitemap.xml`, il riferimento Sitemap in `robots.txt`, i link in `llms.txt` e la regola host in `vercel.json`.
+
+Dopo il deploy, verifica che `https://cuttingknots.com/servizi?check=seo` arrivi a `https://www.cuttingknots.com/servizi?check=seo` con un redirect permanente e che la destinazione risponda **200**. Controlla anche homepage, versione inglese e sitemap. Le condizioni `has` dei redirect non sono supportate da `vercel dev`: il controllo HTTP va eseguito sul deploy.
+
+In Google Search Console invia `https://www.cuttingknots.com/sitemap.xml` usando una proprietà Dominio oppure la proprietà con prefisso `https://www.cuttingknots.com/`. Usa Controllo URL sulla homepage con `www` per verificare il canonical dichiarato e quello scelto da Google, poi richiedi l'indicizzazione dopo la correzione. Una sitemap letta correttamente non garantisce l'indicizzazione né una data di comparsa nei risultati.
 
 ## Provare in locale
 

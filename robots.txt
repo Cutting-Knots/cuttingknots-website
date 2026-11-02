@@ -20,4 +20,4 @@ Allow: /
 Disallow: /villaggio
 Disallow: /village
 
-Sitemap: https://cuttingknots.com/sitemap.xml
+Sitemap: https://www.cuttingknots.com/sitemap.xml
