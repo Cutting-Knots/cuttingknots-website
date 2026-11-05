@@ -734,6 +734,15 @@ body.menu-open{overflow:hidden}
   .mc-sec{flex-basis:82px}
 }
 
+/* product logo (Forma Simplifier): colour version on light, negative on dark */
+.ph-logo{line-height:0}
+.ph-logo .fl{display:block;height:clamp(34px,4vw,48px);width:auto;max-width:100%}
+.proof .ph-logo .fl{height:30px}
+.fl-dark{display:none!important}
+:root[data-theme="dark"] .fl-light{display:none!important}
+:root[data-theme="dark"] .fl-dark{display:block!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fl-light{display:none!important}:root:not([data-theme="light"]) .fl-dark{display:block!important}}
+.formerly{font-size:13px;color:var(--muted);margin-top:-8px}
 /* touch screens: bigger hit areas for the small links and controls */
 @media (pointer:coarse){
   .logo{padding-block:13px}

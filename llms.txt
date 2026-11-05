@@ -6,7 +6,7 @@ Key facts, stated as on the site:
 - Problems addressed: manual and repetitive work (automation, also with AI: reading documents, extracting and checking data); systems that don't talk (integration between ERP, PLM and business systems such as SAP and Teamcenter); processes no tool covers (custom web applications and Mendix low-code); data that is hard to query (plain-language questions to databases, conversion to common standards such as OMOP); choosing technologies and vendors.
 - How work starts: you write a few lines; CuttingKnots replies within two working days and, if the problem is one it can solve, suggests a first conversation; then goals and the current process are analysed and a path is proposed (build, integrate or adopt an existing solution).
 - Products and real status (none is in general use yet):
-  - 3D STEP Simplifier — pilot. Simplifies 3D STEP models while keeping shape and dimensions. One test on a KUKA robot model: 55.98 MB to 3.21 MB (−94.3%) in 86.1 s. Single test, not an average.
+  - Forma Simplifier (formerly 3D STEP Simplifier) — pilot. Simplifies 3D STEP models while keeping shape and dimensions. One test on a KUKA robot model: 55.98 MB to 3.21 MB (−94.3%) in 86.1 s. Single test, not an average.
   - Professional Network Monitor — pilot. Organises companies, contacts and collaborations and shows how professional relationships evolve.
   - VIGIL — prototype. Industrial computer vision that turns production-line video into cycles, stops and OEE. Demo interface with simulated data and preliminary tests; validation on real plants still to come.
   - AIDA — in development. Personal assistant that turns email, notes and to-dos into a plan for the day; next step is connecting Outlook and Gmail calendars.
