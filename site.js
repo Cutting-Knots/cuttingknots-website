@@ -1,25 +1,29 @@
 (function(){
   var root=document.documentElement;
-  /* theme toggle (remembered per viewer when storage is available) */
-  try{var t=localStorage.getItem('ck-theme');if(t==='dark'||t==='light')root.setAttribute('data-theme',t)}catch(e){}
+  var EN=root.lang==='en';
+  /* theme: header toggle and footer choice (auto / light / dark), remembered per viewer */
+  function setTheme(v){if(v==='light'||v==='dark')root.setAttribute('data-theme',v);else root.removeAttribute('data-theme');
+    try{v==='auto'?localStorage.removeItem('ck-theme'):localStorage.setItem('ck-theme',v)}catch(e){}
+    document.querySelectorAll('[data-theme-set]').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-theme-set')===(root.getAttribute('data-theme')||'auto')))})}
   document.querySelectorAll('[data-theme-toggle]').forEach(function(b){b.addEventListener('click',function(){
-    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-    var next=cur==='dark'?'light':'dark';root.setAttribute('data-theme',next);try{localStorage.setItem('ck-theme',next)}catch(e){}
-  })});
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');setTheme(cur==='dark'?'light':'dark')})});
+  document.querySelectorAll('[data-theme-set]').forEach(function(b){b.addEventListener('click',function(){setTheme(b.getAttribute('data-theme-set'))})});
+  setTheme(root.getAttribute('data-theme')||'auto');
   /* phone menu */
   var mb=document.getElementById('menu-btn'),sheet=document.getElementById('sheet');
-  function setMenu(o){sheet.hidden=!o;mb.setAttribute('aria-expanded',String(o));mb.setAttribute('aria-label',o?'Chiudi il menu':'Apri il menu');document.body.style.overflow=o?'hidden':''}
-  mb.addEventListener('click',function(){setMenu(sheet.hidden)});
+  function setMenu(o){sheet.hidden=!o;mb.setAttribute('aria-expanded',String(o));mb.setAttribute('aria-label',o?(EN?'Close the menu':'Chiudi il menu'):(EN?'Open the menu':'Apri il menu'));document.body.style.overflow=o?'hidden':''}
+  if(mb&&sheet){mb.addEventListener('click',function(){setMenu(sheet.hidden)});
   sheet.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
-  addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){setMenu(false);mb.focus()}});
-  /* copy address */
-  var cb=document.getElementById('copy'),cs=document.getElementById('copy-status');
-  cb.addEventListener('click',function(){var done=function(t){cb.textContent=t;cs.textContent=t;setTimeout(function(){cb.textContent="Copia l'indirizzo";cs.textContent=''},2200)};
-    try{navigator.clipboard.writeText('info@cuttingknots.com').then(function(){done('Copiato')},function(){sel()})}catch(e){sel()}
-    function sel(){var r=document.createRange();r.selectNodeContents(document.querySelector('.mail'));var s=getSelection();s.removeAllRanges();s.addRange(r);done('Indirizzo selezionato')}
-  });
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden){setMenu(false);mb.focus()}})}
+  /* copy the email address */
+  document.querySelectorAll('[data-copy]').forEach(function(cb){
+    var label=cb.textContent,cs=document.getElementById('copy-status'),txt=cb.getAttribute('data-copy');
+    cb.addEventListener('click',function(){var done=function(t){cb.textContent=t;if(cs)cs.textContent=t;setTimeout(function(){cb.textContent=label;if(cs)cs.textContent=''},2200)};
+      var sel=function(){var el=document.querySelector('.mail');if(!el)return;var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);done(EN?'Address selected':'Indirizzo selezionato')};
+      try{navigator.clipboard.writeText(txt).then(function(){done(EN?'Copied':'Copiato')},sel)}catch(e){sel()}})});
 
-  /* the scene: everything is driven by scroll position */
+  /* the home scene: everything is driven by scroll position */
+  if(!document.querySelector('.scene'))return;
   var scene=document.querySelector('.scene'),sym=document.getElementById('sym'),cutp=document.getElementById('cutp'),bar=document.getElementById('bar');
   var th=['t1','t2','t3','t4'].map(function(i){return document.getElementById(i)}),tl=document.getElementById('tl'),hint=document.getElementById('hint');
   var P0=[19,246],N=[0.6563,0.7551],D=[0.7548,-0.6559],TIP=364.3,REACH=420;  /* the cut line, its normal and direction; TIP = far end of the bar along the cut */

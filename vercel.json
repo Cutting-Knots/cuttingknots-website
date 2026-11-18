@@ -33,6 +33,16 @@
       "source": "/projects",
       "destination": "/experience",
       "permanent": true
+    },
+    {
+      "source": "/servizi",
+      "destination": "/enterprise",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/en/enterprise",
+      "permanent": true
     }
   ],
   "headers": [

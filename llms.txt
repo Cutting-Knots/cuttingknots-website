@@ -1,29 +1,31 @@
 # CuttingKnots
 
-> CuttingKnots is an Italian technology partner for companies. It offers two things with equal weight: (1) IT consulting, systems integration and custom software, starting from a concrete business problem; (2) its own software products, each at a clearly stated stage of development. The site is bilingual (Italian at /, English at /en). Contact: info@cuttingknots.com (reply within two working days). LinkedIn: https://www.linkedin.com/company/cutting-knots
+> CuttingKnots is an Italian technology company for businesses, organised in divisions. CuttingKnots Enterprise builds its own software products and custom software and AI projects. CuttingKnots Consulting offers AI courses for company teams, industrial consulting (3D models, simulations, management systems), Solution Architect services and end-to-end AI research and development, always as external consultants. Enterprise and Consulting can be chosen separately or together. CuttingKnots Small Solutions builds websites, e-commerce and small management apps for smaller organisations. The site is bilingual (Italian at /, English at /en). Contact: info@cuttingknots.com (reply within two working days). LinkedIn: https://www.linkedin.com/company/cutting-knots
 
 Key facts, stated as on the site:
-- Divisions (Italian home page): CuttingKnots Enterprise (own software products and custom software and AI projects for companies) and CuttingKnots Consulting (AI courses for company teams, industrial consulting on 3D models, simulations and management systems, Solution Architect services, end-to-end AI research and development). The two can be chosen separately or together. CuttingKnots Small Solutions builds websites, e-commerce and small management apps for smaller organisations.
-- Problems addressed: manual and repetitive work (automation, also with AI: reading documents, extracting and checking data); systems that don't talk (integration between ERP, PLM and business systems such as SAP and Teamcenter); processes no tool covers (custom web applications and Mendix low-code); data that is hard to query (plain-language questions to databases, conversion to common standards such as OMOP); choosing technologies and vendors.
-- How work starts: you write a few lines; CuttingKnots replies within two working days and, if the problem is one it can solve, suggests a first conversation; then goals and the current process are analysed and a path is proposed (build, integrate or adopt an existing solution).
+- Custom projects address: manual and repetitive work (automation, also with AI); systems that don't talk (ERP, PLM and business systems such as SAP and Teamcenter); processes no tool covers (custom web applications and Mendix low-code); data that is hard to query (plain-language questions to databases, conversion to standards such as OMOP).
 - Products and real status (none is in general use yet):
-  - Forma Simplifier (formerly 3D STEP Simplifier) — pilot. Simplifies 3D STEP models while keeping shape and dimensions. One test on a KUKA robot model: 55.98 MB to 3.21 MB (−94.3%) in 86.1 s. Single test, not an average.
-  - Professional Network Monitor — pilot. Organises companies, contacts and collaborations and shows how professional relationships evolve.
-  - VIGIL — prototype. Industrial computer vision that turns production-line video into cycles, stops and OEE. Demo interface with simulated data and preliminary tests; validation on real plants still to come.
-  - AIDA — in development. Personal assistant that turns email, notes and to-dos into a plan for the day; next step is connecting Outlook and Gmail calendars.
+  - Forma Simplifier — pilot. Lighter 3D STEP models, with shape and dimensions intact.
+  - VIGIL — prototype. From line video to cycles, stops and OEE.
+  - AIDA — in development. Email, notes and appointments turned into a plan for the day.
+  - Forma Simplifier test on a KUKA robot model: 55.98 MB to 3.21 MB (−94.3%) in 86.1 s. Single test, not an average.
 - Experience: six projects delivered by people on the team in previous roles (not CuttingKnots clients or commissions), in automotive, healthcare, events and research. Team background also includes banking and finance projects.
 
 ## Pages (English)
-- [Home](https://www.cuttingknots.com/en): what CuttingKnots does, the two ways to work with it, evidence and FAQ
-- [Services](https://www.cuttingknots.com/services): problems addressed, what is done, expected outcome, how it starts
+- [Home](https://www.cuttingknots.com/en): the divisions, products, FAQ and contact
+- [Enterprise](https://www.cuttingknots.com/en/enterprise): products, custom projects, AI projects, how it starts
+- [Consulting](https://www.cuttingknots.com/en/consulting): AI courses, industrial consulting, Solution Architect, AI R&D
+- [Small Solutions](https://www.cuttingknots.com/en/small-solutions): websites, e-commerce and small management apps
 - [Products](https://www.cuttingknots.com/products): who each product is for, what it does today, status, next step
 - [Experience](https://www.cuttingknots.com/experience): six team projects with context, problem, what was done and result
 - [About](https://www.cuttingknots.com/about): the team and how it works
 - [Contact](https://www.cuttingknots.com/contact): email and what to write
 
 ## Pagine (italiano)
-- [Home](https://www.cuttingknots.com/): CuttingKnots Enterprise (prodotti e progetti) e CuttingKnots Consulting (corsi sull'IA e consulenza), domande frequenti e contatti
-- [Servizi](https://www.cuttingknots.com/servizi): problemi, interventi, obiettivi e come si comincia
+- [Home](https://www.cuttingknots.com/): le divisioni, i prodotti, domande frequenti e contatti
+- [Enterprise](https://www.cuttingknots.com/enterprise): prodotti, progetti su misura, progetti di IA, come si comincia
+- [Consulting](https://www.cuttingknots.com/consulting): corsi sull'IA, consulenza industriale, Solution Architect, ricerca e sviluppo
+- [Small Solutions](https://www.cuttingknots.com/small-solutions): siti web, e-commerce e microgestionali
 - [Prodotti](https://www.cuttingknots.com/prodotti): a chi serve ogni prodotto, cosa fa oggi, stato e prossimo passo
 - [Esperienze](https://www.cuttingknots.com/esperienze): sei progetti del team in precedenti realtà lavorative
 - [Chi siamo](https://www.cuttingknots.com/chi-siamo): il team e come lavora
