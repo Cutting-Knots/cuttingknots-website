@@ -216,9 +216,9 @@ main:focus{outline:none}
 .site-foot .wrap{padding-block:40px calc(28px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
 .f-brand p{color:var(--muted);font-size:14px;margin-top:10px;max-width:24em}
 .f-brand img{height:24px;width:auto;display:block}
-.logo-ink{display:block}.logo-ink-dark{display:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo-ink{display:none}:root:not([data-theme="light"]) .logo-ink-dark{display:block}}
-:root[data-theme="dark"] .logo-ink{display:none}:root[data-theme="dark"] .logo-ink-dark{display:block}
+img.logo-ink{display:block}img.logo-ink-dark{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) img.logo-ink{display:none}:root:not([data-theme="light"]) img.logo-ink-dark{display:block}}
+:root[data-theme="dark"] img.logo-ink{display:none}:root[data-theme="dark"] img.logo-ink-dark{display:block}
 .f-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .f-cols h2{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:4px}
 .f-cols a{color:var(--fg);text-decoration:none;display:flex;align-items:center;min-height:40px;font-size:15px}

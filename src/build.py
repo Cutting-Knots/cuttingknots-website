@@ -636,7 +636,7 @@ def page_prodotti():
     secs = ''
     for p in products():
         stg = ''.join(f'<li{" aria-current=\"step\"" if i + 1 == p["stage"] else ""}>{s[0]}</li>' for i, s in enumerate(stages()))
-        name = (f'<h2><img src="/img/forma-simplifier-colore.svg" alt="" width="200" height="34" style="height:34px;width:auto;display:block" class="logo-ink"><img src="{p["logo"]}" alt="" width="200" height="34" style="height:34px;width:auto" class="logo-ink-dark"><span class="sr">{p["name"]}</span></h2>'
+        name = (f'<h2><img src="/img/forma-simplifier-colore.svg" alt="" width="200" height="34" style="height:34px;width:auto" class="logo-ink"><img src="{p["logo"]}" alt="" width="200" height="34" style="height:34px;width:auto" class="logo-ink-dark"><span class="sr">{p["name"]}</span></h2>'
                 if p.get('logo') else f'<h2>{p["name"]}</h2>')
         fig = f'<figure class="shot"><img src="{p["img"]}" alt="{esc(p["alt"])}" width="{p["w"]}" height="{p["h"]}" loading="lazy"{" style=\"background:#262626\"" if p.get("contain") else ""}><figcaption>{esc(p["cap"])}</figcaption></figure>'
         extra = ''
