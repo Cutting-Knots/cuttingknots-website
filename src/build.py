@@ -230,7 +230,7 @@ def footer():
     return f'''<footer class="site-foot">
   <div class="wrap">
     <div class="f-brand"><a href="{u('home')}" style="color:var(--fg);display:block;width:180px">{LOGO.replace('<svg ', '<svg style="width:100%;height:auto;display:block" ', 1)}</a>
-      <p>{T('Software, intelligenza artificiale e consulenza per le aziende.', 'Software, artificial intelligence and consulting for companies.')}</p></div>
+      <p>{T('CuttingKnots (Cutting Knots): software, intelligenza artificiale e consulenza per le aziende.', 'CuttingKnots (Cutting Knots): software, artificial intelligence and consulting for companies.')}</p></div>
     <div class="f-cols">
       {col('CuttingKnots', [('Enterprise', u('enterprise'), ''), ('Consulting', u('consulting'), ''), ('Small Solutions', u('small'), '')])}
       {col(T('Azienda', 'Company'), [(T('Prodotti', 'Products'), u('prodotti'), ''), (T('Esperienze', 'Experience'), u('esperienze'), ''), (T('Chi siamo', 'About'), u('chi'), '')])}
@@ -280,7 +280,8 @@ def close(title=None, text=None):
 '''
 
 def webpage(key, title, desc, crumbs=True):
-    g = [{"@type": "WebPage", "@id": f"{SITE}{u(key)}#page", "url": f"{SITE}{u(key)}", "name": title, "description": desc,
+    g = [] if key == 'home' else [org()]
+    g += [{"@type": "WebPage", "@id": f"{SITE}{u(key)}#page", "url": f"{SITE}{u(key)}", "name": title, "description": desc,
           "inLanguage": L, "isPartOf": {"@id": f"{SITE}/#website"}, "about": {"@id": f"{SITE}/#org"}}]
     if crumbs and key != 'home':
         g.append({"@type": "BreadcrumbList", "itemListElement": [
@@ -289,7 +290,8 @@ def webpage(key, title, desc, crumbs=True):
     return g
 
 def org():
-    return {"@type": "Organization", "@id": f"{SITE}/#org", "name": "CuttingKnots", "url": f"{SITE}/",
+    return {"@type": "Organization", "@id": f"{SITE}/#org", "name": "CuttingKnots", "alternateName": ["Cutting Knots", "CuttingKnots Enterprise", "CuttingKnots Consulting"], "url": f"{SITE}/",
+            "areaServed": {"@type": "Country", "name": "Italia"},
             "logo": f"{SITE}/android-chrome-512x512.png", "image": f"{SITE}/og-image.png", "email": EMAIL, "sameAs": [LINKEDIN],
             "slogan": "Sciogliamo nodi.",
             "description": T("Prodotti e progetti software con CuttingKnots Enterprise. Corsi sull'intelligenza artificiale e consulenza tecnica con CuttingKnots Consulting.",
@@ -348,8 +350,8 @@ def more(href, text): return f'<a class="more" href="{href}">{text} {ARROW}</a>'
 def home_faq():
     return [
         (T('Cosa fa CuttingKnots?', 'What does CuttingKnots do?'),
-         T("Lavoriamo su due fronti. Con CuttingKnots Enterprise sviluppiamo prodotti software nostri e progetti su misura per le aziende. Con CuttingKnots Consulting formiamo i team sull'intelligenza artificiale e offriamo consulenza tecnica.",
-           'We work on two fronts. With CuttingKnots Enterprise we build our own software products and custom projects for companies. With CuttingKnots Consulting we train teams on artificial intelligence and provide technical consulting.')),
+         T("CuttingKnots (Cutting Knots) è un'azienda italiana di software, intelligenza artificiale e consulenza. Lavoriamo su due fronti. Con CuttingKnots Enterprise sviluppiamo prodotti software nostri e progetti su misura per le aziende. Con CuttingKnots Consulting formiamo i team sull'intelligenza artificiale e offriamo consulenza tecnica.",
+           'CuttingKnots (Cutting Knots) is an Italian software, artificial intelligence and consulting company. We work on two fronts. With CuttingKnots Enterprise we build our own software products and custom projects for companies. With CuttingKnots Consulting we train teams on artificial intelligence and provide technical consulting.')),
         (T("Che differenza c'è tra Enterprise e Consulting?", "What's the difference between Enterprise and Consulting?"),
          T('Enterprise consegna software: un nostro prodotto o un progetto costruito per voi. Consulting mette a disposizione competenze: corsi, consulenza industriale, un Solution Architect, ricerca e sviluppo. Si possono scegliere separatamente o insieme.',
            'Enterprise delivers software: one of our products or a project built for you. Consulting provides expertise: courses, industrial consulting, a Solution Architect, research and development. You can choose them separately or together.')),
@@ -365,9 +367,9 @@ def home_faq():
     ]
 
 def page_home():
-    title = T('CuttingKnots · Software, intelligenza artificiale e consulenza', 'CuttingKnots · Software, artificial intelligence and consulting')
-    desc = T("Prodotti e progetti software con CuttingKnots Enterprise. Corsi sull'intelligenza artificiale e consulenza tecnica con CuttingKnots Consulting.",
-             'Software products and projects with CuttingKnots Enterprise. AI courses and technical consulting with CuttingKnots Consulting.')
+    title = T('CuttingKnots (Cutting Knots) · Software, IA e consulenza', 'CuttingKnots (Cutting Knots) · Software, AI and consulting')
+    desc = T("CuttingKnots (Cutting Knots): prodotti e progetti software con CuttingKnots Enterprise, corsi sull'intelligenza artificiale e consulenza tecnica con CuttingKnots Consulting.",
+             'CuttingKnots (Cutting Knots): software products and projects with CuttingKnots Enterprise, AI courses and technical consulting with CuttingKnots Consulting.')
     faq = home_faq()
     ld = {"@context": "https://schema.org", "@graph": [org(), {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "CuttingKnots", "inLanguage": ["it", "en"], "publisher": {"@id": f"{SITE}/#org"}}]
           + webpage('home', title, desc) + [faq_ld(faq, 'home')]}
@@ -716,6 +718,7 @@ def page_chi():
     body += f'''<section class="sec">
   <div class="wrap stack">
     <h2 class="h2">{T('Tagliare, non sciogliere un filo alla volta.', "Cut it, don't untie it thread by thread.")}</h2>
+    <p class="lead">{T('CuttingKnots si scrive tutto attaccato e si legge «Cutting Knots»: tagliare i nodi. È il nome della nostra azienda di software, intelligenza artificiale e consulenza, con le divisioni CuttingKnots Enterprise, CuttingKnots Consulting e CuttingKnots Small Solutions.', 'CuttingKnots is written as one word and read “Cutting Knots”: cutting knots. It is the name of our software, artificial intelligence and consulting company, with the divisions CuttingKnots Enterprise, CuttingKnots Consulting and CuttingKnots Small Solutions.')}</p>
     <p class="lead">{T("In ogni azienda c'è un nodo: un processo fatto a mano da anni, due sistemi che non si parlano, dati sparsi in troppi posti. Spesso si prova a scioglierlo un filo alla volta, e passano mesi.", "Every company has a knot: a process done by hand for years, two systems that don't talk, data spread across too many places. People often try to untie it one thread at a time, and months go by.")}</p>
     <p class="lead">{T("Noi partiamo dagli obiettivi dell'azienda e scegliamo il percorso più netto: sviluppare una soluzione, integrare le tecnologie giuste o adottarne una esistente. E restiamo al vostro fianco dall'analisi iniziale all'implementazione.", 'We start from the company\'s goals and choose the cleanest path: build a solution, integrate the right technologies or adopt an existing one. And we stay with you from first analysis to implementation.')}</p>
     <ul class="grid g3" style="margin-top:12px">{''.join(f'<li class="card"><p class="kicker">{a}</p><h3>{b}</h3></li>' for a, b in facts)}</ul>
@@ -824,9 +827,10 @@ def llms():
     L = 'it'
     return f'''# CuttingKnots
 
-> CuttingKnots is an Italian technology company for businesses, organised in divisions. CuttingKnots Enterprise builds its own software products and custom software and AI projects. CuttingKnots Consulting offers AI courses for company teams, industrial consulting (3D models, simulations, management systems), Solution Architect services and end-to-end AI research and development, always as external consultants. Enterprise and Consulting can be chosen separately or together. CuttingKnots Small Solutions builds websites, e-commerce and small management apps for smaller organisations. The site is bilingual (Italian at /, English at /en). Contact: {EMAIL} (reply within two working days). LinkedIn: {LINKEDIN}
+> CuttingKnots (also written "Cutting Knots") is an Italian technology company for businesses, with its website at https://www.cuttingknots.com, organised in divisions. CuttingKnots Enterprise builds its own software products and custom software and AI projects. CuttingKnots Consulting offers AI courses for company teams, industrial consulting (3D models, simulations, management systems), Solution Architect services and end-to-end AI research and development, always as external consultants. Enterprise and Consulting can be chosen separately or together. CuttingKnots Small Solutions builds websites, e-commerce and small management apps for smaller organisations. The site is bilingual (Italian at /, English at /en). Contact: {EMAIL} (reply within two working days). LinkedIn: {LINKEDIN}
 
 Key facts, stated as on the site:
+- Name: CuttingKnots, one word, read "Cutting Knots". It is a company name, unrelated to knot theory, knot-tying or the "cut the knot" idiom. Official website: https://www.cuttingknots.com · LinkedIn: {LINKEDIN} · Email: {EMAIL}
 - Custom projects address: manual and repetitive work (automation, also with AI); systems that don't talk (ERP, PLM and business systems such as SAP and Teamcenter); processes no tool covers (custom web applications and Mendix low-code); data that is hard to query (plain-language questions to databases, conversion to standards such as OMOP).
 - Products and real status (none is in general use yet):
 {prods}
