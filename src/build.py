@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CuttingKnots site generator.
+"""Cutting Knots site generator.
 
 Run from the repository root:  python3 src/build.py
 Writes every page (Italian and English) into the repository root, plus
@@ -65,7 +65,7 @@ def products():
         dict(id='vigil', name='VIGIL', stage=2,
              cat=T('Computer vision industriale', 'Industrial computer vision'),
              short=T('Dai video delle linee a cicli, fermate e OEE.', 'From line video to cycles, stops and OEE.'),
-             img='/img/vigil-dashboard.jpg', w=900, h=535,
+             img='/img/vigil-dashboard.jpg', w=1200, h=713,
              alt=T('Interfaccia dimostrativa di VIGIL', 'VIGIL demo interface'),
              cap=T('Interfaccia dimostrativa, dati simulati', 'Demo interface, simulated data'),
              who=T('Responsabili di produzione e manutenzione che vogliono misurare cicli, fermate e OEE di linee e macchine.',
@@ -78,11 +78,11 @@ def products():
              can=T("Chiederci una dimostrazione dell'interfaccia, con dati simulati, o informazioni sulla validazione sul campo.",
                    'Ask us for a demo of the interface, with simulated data, or for information on field validation.'),
              cta=T('Chiedi una dimostrazione', 'Ask for a demo'), subj=T('VIGIL – richiesta dimostrazione', 'VIGIL – demo request'),
-             img2='/img/vigil-detection.jpg', cap2=T('Test preliminare: riconoscimento e conteggio sul nastro', 'Preliminary test: recognition and counting on the conveyor')),
+             img2='/img/vigil-detection.jpg', w2=1000, h2=750, cap2=T('Test preliminare: riconoscimento e conteggio sul nastro', 'Preliminary test: recognition and counting on the conveyor')),
         dict(id='aida', name='AIDA', stage=1,
              cat=T('Agenda e organizzazione', 'Planning and organisation'),
              short=T("Email, appunti e impegni trasformati nell'agenda della giornata.", 'Email, notes and appointments turned into a plan for the day.'),
-             img='/img/aida-calendar.jpg', w=900, h=447,
+             img='/img/aida-calendar.jpg', w=1200, h=596,
              alt=T('Calendario settimanale organizzato da AIDA', 'Weekly calendar organised by AIDA'),
              cap=T('Versione in sviluppo', 'Version in development'),
              who=T('Chi deve tenere insieme email, appunti, impegni e scadenze tra lavoro e vita privata.',
@@ -165,14 +165,14 @@ def head(key, title, desc, jsonld, extra=''):
 <link rel="alternate" hreflang="en" href="{SITE}{en}">
 <link rel="alternate" hreflang="x-default" href="{SITE}{it}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="CuttingKnots">
+<meta property="og:site_name" content="Cutting Knots">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{SITE}{path}">
 <meta property="og:image" content="{SITE}/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="CuttingKnots">
+<meta property="og:image:alt" content="Cutting Knots">
 <meta property="og:locale" content="{T('it_IT', 'en_US')}">
 <meta property="og:locale:alternate" content="{T('en_US', 'it_IT')}">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@ def header(key):
             else f'<a href="{alt}" lang="it" hreflang="it">IT</a> · <b>EN</b>')
     return f'''<header class="hd">
   <div class="hd-in">
-    <a class="logo" href="{u('home')}" aria-label="{T('CuttingKnots, pagina iniziale', 'CuttingKnots, home page')}"><img src="/img/ck-logo-white.svg" alt="CuttingKnots" width="152" height="28"></a>
+    <a class="logo" href="{u('home')}" aria-label="{T('Cutting Knots, pagina iniziale', 'Cutting Knots, home page')}"><img src="/img/ck-logo-white.svg" alt="Cutting Knots" width="152" height="28"></a>
     <nav class="hd-links" aria-label="{T('Principale', 'Main')}">{links}</nav>
     <div class="hd-tools">
       <span class="lang">{lang}</span>
@@ -230,14 +230,14 @@ def footer():
     return f'''<footer class="site-foot">
   <div class="wrap">
     <div class="f-brand"><a href="{u('home')}" style="color:var(--fg);display:block;width:180px">{LOGO.replace('<svg ', '<svg style="width:100%;height:auto;display:block" ', 1)}</a>
-      <p>{T('CuttingKnots (Cutting Knots): software, intelligenza artificiale e consulenza per le aziende.', 'CuttingKnots (Cutting Knots): software, artificial intelligence and consulting for companies.')}</p></div>
+      <p>{T('Cutting Knots: software, intelligenza artificiale e consulenza per le aziende.', 'Cutting Knots: software, artificial intelligence and consulting for companies.')}</p></div>
     <div class="f-cols">
-      {col('CuttingKnots', [('Enterprise', u('enterprise'), ''), ('Consulting', u('consulting'), ''), ('Small Solutions', u('small'), '')])}
+      {col('Cutting Knots', [('Enterprise', u('enterprise'), ''), ('Consulting', u('consulting'), ''), ('Small Solutions', u('small'), '')])}
       {col(T('Azienda', 'Company'), [(T('Prodotti', 'Products'), u('prodotti'), ''), (T('Esperienze', 'Experience'), u('esperienze'), ''), (T('Chi siamo', 'About'), u('chi'), '')])}
       {col(T('Contatti', 'Contact'), [(EMAIL, 'mailto:' + EMAIL, ''), ('LinkedIn', LINKEDIN, ' rel="noopener"'), (T('Scrivici', 'Write to us'), u('contatti'), '')])}
     </div>
     <div class="f-bottom">
-      <span>© 2026 CuttingKnots</span>
+      <span>© 2026 Cutting Knots</span>
       <div class="themes" role="group" aria-label="{T('Tema', 'Theme')}"><button type="button" data-theme-set="auto" aria-pressed="true">{T('Automatico', 'Auto')}</button><button type="button" data-theme-set="light" aria-pressed="false">{T('Chiaro', 'Light')}</button><button type="button" data-theme-set="dark" aria-pressed="false">{T('Scuro', 'Dark')}</button></div>
       <a class="egg" href="{u('villaggio')}">▶ {T('PREMI START', 'PRESS START')}</a>
     </div>
@@ -285,20 +285,20 @@ def webpage(key, title, desc, crumbs=True):
           "inLanguage": L, "isPartOf": {"@id": f"{SITE}/#website"}, "about": {"@id": f"{SITE}/#org"}}]
     if crumbs and key != 'home':
         g.append({"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "CuttingKnots", "item": f"{SITE}{u('home')}"},
+            {"@type": "ListItem", "position": 1, "name": "Cutting Knots", "item": f"{SITE}{u('home')}"},
             {"@type": "ListItem", "position": 2, "name": title.split(' · ')[0], "item": f"{SITE}{u(key)}"}]})
     return g
 
 def org():
-    return {"@type": "Organization", "@id": f"{SITE}/#org", "name": "CuttingKnots", "alternateName": ["Cutting Knots", "CuttingKnots Enterprise", "CuttingKnots Consulting"], "url": f"{SITE}/",
+    return {"@type": "Organization", "@id": f"{SITE}/#org", "name": "Cutting Knots", "alternateName": ["CuttingKnots", "Cutting Knots Enterprise", "Cutting Knots Consulting"], "url": f"{SITE}/",
             "areaServed": {"@type": "Country", "name": "Italia"},
             "logo": f"{SITE}/android-chrome-512x512.png", "image": f"{SITE}/og-image.png", "email": EMAIL, "sameAs": [LINKEDIN],
             "slogan": "Sciogliamo nodi.",
-            "description": T("Prodotti e progetti software con CuttingKnots Enterprise. Corsi sull'intelligenza artificiale e consulenza tecnica con CuttingKnots Consulting.",
-                             'Software products and projects with CuttingKnots Enterprise. AI courses and technical consulting with CuttingKnots Consulting.'),
-            "department": [{"@type": "Organization", "name": "CuttingKnots Enterprise", "url": f"{SITE}{u('enterprise')}"},
-                           {"@type": "Organization", "name": "CuttingKnots Consulting", "url": f"{SITE}{u('consulting')}"},
-                           {"@type": "Organization", "name": "CuttingKnots Small Solutions", "url": f"{SITE}{u('small')}"}],
+            "description": T("Prodotti e progetti software con Cutting Knots Enterprise. Corsi sull'intelligenza artificiale e consulenza tecnica con Cutting Knots Consulting.",
+                             'Software products and projects with Cutting Knots Enterprise. AI courses and technical consulting with Cutting Knots Consulting.'),
+            "department": [{"@type": "Organization", "name": "Cutting Knots Enterprise", "url": f"{SITE}{u('enterprise')}"},
+                           {"@type": "Organization", "name": "Cutting Knots Consulting", "url": f"{SITE}{u('consulting')}"},
+                           {"@type": "Organization", "name": "Cutting Knots Small Solutions", "url": f"{SITE}{u('small')}"}],
             "knowsAbout": ["Intelligenza artificiale", "Formazione sull'intelligenza artificiale", "Solution Architecture", "Integrazione di sistemi",
                            "ERP", "PLM", "SAP", "Teamcenter", "Mendix", "Low-code", "Computer vision", "Modelli 3D", "Simulazioni", "Sviluppo software su misura", "OMOP", "MCP"],
             "contactPoint": {"@type": "ContactPoint", "email": EMAIL, "contactType": "sales", "availableLanguage": ["Italian", "English"]}}
@@ -349,9 +349,9 @@ def more(href, text): return f'<a class="more" href="{href}">{text} {ARROW}</a>'
 # ------------------------------------------------------------------ pages
 def home_faq():
     return [
-        (T('Cosa fa CuttingKnots?', 'What does CuttingKnots do?'),
-         T("CuttingKnots (Cutting Knots) è un'azienda italiana di software, intelligenza artificiale e consulenza. Lavoriamo su due fronti. Con CuttingKnots Enterprise sviluppiamo prodotti software nostri e progetti su misura per le aziende. Con CuttingKnots Consulting formiamo i team sull'intelligenza artificiale e offriamo consulenza tecnica.",
-           'CuttingKnots (Cutting Knots) is an Italian software, artificial intelligence and consulting company. We work on two fronts. With CuttingKnots Enterprise we build our own software products and custom projects for companies. With CuttingKnots Consulting we train teams on artificial intelligence and provide technical consulting.')),
+        (T('Cosa fa Cutting Knots?', 'What does Cutting Knots do?'),
+         T("Cutting Knots è un'azienda italiana di software, intelligenza artificiale e consulenza. Lavoriamo su due fronti. Con Cutting Knots Enterprise sviluppiamo prodotti software nostri e progetti su misura per le aziende. Con Cutting Knots Consulting formiamo i team sull'intelligenza artificiale e offriamo consulenza tecnica.",
+           'Cutting Knots is an Italian software, artificial intelligence and consulting company. We work on two fronts. With Cutting Knots Enterprise we build our own software products and custom projects for companies. With Cutting Knots Consulting we train teams on artificial intelligence and provide technical consulting.')),
         (T("Che differenza c'è tra Enterprise e Consulting?", "What's the difference between Enterprise and Consulting?"),
          T('Enterprise consegna software: un nostro prodotto o un progetto costruito per voi. Consulting mette a disposizione competenze: corsi, consulenza industriale, un Solution Architect, ricerca e sviluppo. Si possono scegliere separatamente o insieme.',
            'Enterprise delivers software: one of our products or a project built for you. Consulting provides expertise: courses, industrial consulting, a Solution Architect, research and development. You can choose them separately or together.')),
@@ -359,19 +359,19 @@ def home_faq():
          T('Dipende dal prodotto: Forma Simplifier è in fase pilota, VIGIL è un prototipo e AIDA è in sviluppo. Per ognuno indichiamo lo stato reale e cosa si può fare oggi.',
            'It depends on the product: Forma Simplifier is in pilot, VIGIL is a prototype and AIDA is in development. For each one we state its real status and what can be done today.')),
         (T("Fate corsi sull'intelligenza artificiale per le aziende?", 'Do you run AI courses for companies?'),
-         T('Sì, con CuttingKnots Consulting. I corsi sono pensati per i team aziendali e partono dai vostri casi d\'uso.',
-           'Yes, with CuttingKnots Consulting. The courses are designed for company teams and start from your own use cases.')),
+         T('Sì, con Cutting Knots Consulting. I corsi sono pensati per i team aziendali e partono dai vostri casi d\'uso.',
+           'Yes, with Cutting Knots Consulting. The courses are designed for company teams and start from your own use cases.')),
         (T('Come si comincia?', 'How do we start?'),
          T('Scriveteci in poche righe cosa vi serve. Rispondiamo entro due giorni lavorativi e, se possiamo aiutarvi, vi proponiamo una prima conversazione.',
            'Write to us in a few lines about what you need. We reply within two working days and, if we can help, suggest a first conversation.')),
     ]
 
 def page_home():
-    title = T('CuttingKnots (Cutting Knots) · Software, IA e consulenza', 'CuttingKnots (Cutting Knots) · Software, AI and consulting')
-    desc = T("CuttingKnots (Cutting Knots): prodotti e progetti software con CuttingKnots Enterprise, corsi sull'intelligenza artificiale e consulenza tecnica con CuttingKnots Consulting.",
-             'CuttingKnots (Cutting Knots): software products and projects with CuttingKnots Enterprise, AI courses and technical consulting with CuttingKnots Consulting.')
+    title = T('Cutting Knots · Software, IA e consulenza', 'Cutting Knots · Software, AI and consulting')
+    desc = T("Cutting Knots: prodotti e progetti software con Cutting Knots Enterprise, corsi sull'intelligenza artificiale e consulenza tecnica con Cutting Knots Consulting.",
+             'Cutting Knots: software products and projects with Cutting Knots Enterprise, AI courses and technical consulting with Cutting Knots Consulting.')
     faq = home_faq()
-    ld = {"@context": "https://schema.org", "@graph": [org(), {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "CuttingKnots", "inLanguage": ["it", "en"], "publisher": {"@id": f"{SITE}/#org"}}]
+    ld = {"@context": "https://schema.org", "@graph": [org(), {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "Cutting Knots", "inLanguage": ["it", "en"], "publisher": {"@id": f"{SITE}/#org"}}]
           + webpage('home', title, desc) + [faq_ld(faq, 'home')]}
     pre = '<link rel="preload" as="image" href="/img/horizon-1200.jpg" imagesrcset="/img/horizon-1200.jpg 1200w, /img/horizon-2400.jpg 2400w" imagesizes="100vw" fetchpriority="high">\n'
     cons = ''.join(f'<li>{ico(p)}<div><h3>{t}</h3><p>{d}</p></div></li>' for _, p, t, d in consulting_items())
@@ -382,9 +382,9 @@ def page_home():
     <div class="wrap copy">
       <p class="eyebrow">{T('Software, intelligenza artificiale, consulenza', 'Software, artificial intelligence, consulting')}</p>
       <h1>{T('Tagliamo i nodi che rallentano la tua azienda.', 'We cut the knots that slow your company down.')}</h1>
-      <p class="sub">{T("Prodotti e progetti software con CuttingKnots Enterprise. Formazione sull'intelligenza artificiale e consulenza con CuttingKnots Consulting.", 'Software products and projects with CuttingKnots Enterprise. AI training and consulting with CuttingKnots Consulting.')}</p>
+      <p class="sub">{T("Prodotti e progetti software con Cutting Knots Enterprise. Formazione sull'intelligenza artificiale e consulenza con Cutting Knots Consulting.", 'Software products and projects with Cutting Knots Enterprise. AI training and consulting with Cutting Knots Consulting.')}</p>
     </div>
-    <svg class="sym" id="sym" role="img" aria-label="{T('Il nodo di CuttingKnots, tagliato dalla sua barra arancione', 'The CuttingKnots knot, cut by its orange bar')}" viewBox="-12 -12 330 284">
+    <svg class="sym" id="sym" role="img" aria-label="{T('Il nodo di Cutting Knots, tagliato dalla sua barra arancione', 'The Cutting Knots knot, cut by its orange bar')}" viewBox="-12 -12 330 284">
       <defs>
         <clipPath id="cutclip"><polygon id="cutp" points="-2000,-2000 2000,-2000 2000,2000 -2000,2000"/></clipPath>
         <path id="kp" d="{KN['REST']}"/>
@@ -421,7 +421,7 @@ def page_home():
 
 <section id="enterprise" class="sec ent">
   <div class="wrap stack">
-    <p class="eyebrow">CuttingKnots Enterprise</p>
+    <p class="eyebrow">Cutting Knots Enterprise</p>
     <h2 class="h2">{T('Prodotti e progetti software per le aziende.', 'Software products and projects for companies.')}</h2>
     <p class="lead">{T('Prodotti nostri per i problemi più comuni, e progetti costruiti sul vostro processo quando serve qualcosa che non esiste ancora.', "Our own products for common problems, and projects built around your process when you need something that doesn't exist yet.")}</p>
     <h3 class="sub-h" id="prodotti">{T('Prodotti · ognuno con il suo stato reale', 'Products · each with its real status')}</h3>
@@ -431,24 +431,24 @@ def page_home():
       <li class="proj"><h3>{T('Progetti su misura', 'Custom projects')}</h3><p>{T('Integrazioni tra ERP, PLM e gestionali, applicazioni web e low-code costruite sul vostro processo.', 'Integrations between ERP, PLM and business systems, web and low-code applications built around your process.')}</p></li>
       <li class="proj"><h3>{T("Progetti di intelligenza artificiale", 'AI projects')}</h3><p>{T('Lettura e controllo dei documenti, computer vision, dati interrogabili in linguaggio naturale.', 'Reading and checking documents, computer vision, data you can query in plain language.')}</p></li>
     </ul>
-    <div class="acts" style="margin-top:8px"><a class="btn btn-white" href="{u('enterprise')}">{T('Scopri CuttingKnots Enterprise', 'Explore CuttingKnots Enterprise')}</a></div>
+    <div class="acts" style="margin-top:8px"><a class="btn btn-white" href="{u('enterprise')}">{T('Scopri Cutting Knots Enterprise', 'Explore Cutting Knots Enterprise')}</a></div>
   </div>
 </section>
 
 <section id="consulting" class="sec">
   <div class="wrap stack">
-    <p class="eyebrow" style="color:var(--accent-text)">CuttingKnots Consulting</p>
+    <p class="eyebrow" style="color:var(--accent-text)">Cutting Knots Consulting</p>
     <h2 class="h2">{T('Formazione e consulenza, dove servono competenze in più.', 'Training and consulting, where you need extra expertise.')}</h2>
     <p class="lead">{T("Portiamo l'intelligenza artificiale nei vostri team e vi affianchiamo su progetti tecnici, dall'architettura alla ricerca.", 'We bring artificial intelligence into your teams and support you on technical projects, from architecture to research.')}</p>
     <ul class="cons">{cons}</ul>
     <div class="acts" style="margin-top:8px">
-      <a class="btn btn-ink" href="{u('consulting')}">{T('Scopri CuttingKnots Consulting', 'Explore CuttingKnots Consulting')}</a>
+      <a class="btn btn-ink" href="{u('consulting')}">{T('Scopri Cutting Knots Consulting', 'Explore Cutting Knots Consulting')}</a>
       <a class="btn btn-soft" href="{mailto(T('Corso sull’intelligenza artificiale per il team', 'AI course for our team'))}">{T('Chiedi un corso per il team', 'Ask about a course for your team')}</a>
     </div>
   </div>
 </section>
 
-<section id="small"><div class="wrap"><p class="small"><span aria-hidden="true"></span>{T('Per realtà più piccole: siti web, e-commerce e microgestionali con', 'For smaller organisations: websites, e-commerce and small management apps with')}&nbsp;<a href="{u('small')}" style="font-weight:600">CuttingKnots Small Solutions</a></p></div></section>
+<section id="small"><div class="wrap"><p class="small"><span aria-hidden="true"></span>{T('Per realtà più piccole: siti web, e-commerce e microgestionali con', 'For smaller organisations: websites, e-commerce and small management apps with')}&nbsp;<a href="{u('small')}" style="font-weight:600">Cutting Knots Small Solutions</a></p></div></section>
 '''
     return head('home', title, desc, ld, pre) + header('home') + body + faq_block(faq, T('Domande', 'Questions')).replace('class="sec"', 'class="sec"', 1) + close() + '</main>\n' + footer()
 
@@ -485,7 +485,7 @@ def start_steps():
     ])
 
 def page_enterprise():
-    title = T('CuttingKnots Enterprise · Prodotti e progetti software', 'CuttingKnots Enterprise · Software products and projects')
+    title = T('Cutting Knots Enterprise · Prodotti e progetti software', 'Cutting Knots Enterprise · Software products and projects')
     desc = T('Prodotti software nostri e progetti su misura per le aziende: integrazione di ERP e PLM, applicazioni web e low-code, progetti di intelligenza artificiale.',
              'Our own software products and custom projects for companies: ERP and PLM integration, web and low-code applications, AI projects.')
     rows = ''
@@ -498,9 +498,9 @@ def page_enterprise():
           (T('Computer vision', 'Computer vision'), T('Telecamere che riconoscono oggetti, eventi e tempi su linee e magazzini.', 'Cameras that recognise objects, events and times on lines and in warehouses.')),
           (T('Dati in linguaggio naturale', 'Data in plain language'), T('Domande ai database con parole di tutti i giorni, senza scrivere query.', 'Questions to databases in everyday words, without writing queries.')),
           (T('Agenti e assistenti', 'Agents and assistants'), T('Più agenti IA che si dividono un lavoro complesso, collegati ai vostri sistemi anche via MCP.', 'Several AI agents sharing a complex job, connected to your systems, including via MCP.'))]
-    body = band('CuttingKnots Enterprise', T('Software che <em>lavora</em> per la vostra azienda.', 'Software that <em>works</em> for your company.'),
+    body = band('Cutting Knots Enterprise', T('Software che <em>lavora</em> per la vostra azienda.', 'Software that <em>works</em> for your company.'),
                 T('Prodotti nostri per i problemi più comuni, e progetti costruiti sul vostro processo quando serve qualcosa che non esiste ancora.', "Our own products for common problems, and projects built around your process when you need something that doesn't exist yet."),
-                f'<a class="btn btn-white" href="{mailto(T("CuttingKnots Enterprise – nuovo progetto", "CuttingKnots Enterprise – new project"))}">{T("Parliamo del vostro progetto", "Let’s talk about your project")}</a><a class="btn btn-ghost" href="#prodotti">{T("Vedi i prodotti", "See the products")}</a>')
+                f'<a class="btn btn-white" href="{mailto(T("Cutting Knots Enterprise – nuovo progetto", "Cutting Knots Enterprise – new project"))}">{T("Parliamo del vostro progetto", "Let’s talk about your project")}</a><a class="btn btn-ghost" href="#prodotti">{T("Vedi i prodotti", "See the products")}</a>')
     body += f'''<section class="sec ent" id="prodotti">
   <div class="wrap stack">
     <p class="eyebrow">{T('Prodotti', 'Products')}</p>
@@ -541,9 +541,9 @@ def page_enterprise():
     return head('enterprise', title, desc, ld) + header('enterprise') + '<main id="main" tabindex="-1">\n' + body + close() + '</main>\n' + footer()
 
 def page_consulting():
-    title = T("CuttingKnots Consulting · Corsi sull'IA e consulenza tecnica", 'CuttingKnots Consulting · AI courses and technical consulting')
-    desc = T("Corsi sull'intelligenza artificiale per i team aziendali, consulenza industriale su modelli 3D, simulazioni e gestionali, Solution Architect e ricerca e sviluppo IA, come consulenti esterni.",
-             'AI courses for company teams, industrial consulting on 3D models, simulations and management systems, Solution Architect services and AI research and development, as external consultants.')
+    title = T("Cutting Knots Consulting · Corsi sull'IA e consulenza tecnica", 'Cutting Knots Consulting · AI courses and technical consulting')
+    desc = T("Corsi sull'IA per i team aziendali, consulenza su modelli 3D, simulazioni e gestionali, Solution Architect e ricerca e sviluppo IA, da consulenti esterni.",
+             'AI courses for company teams, consulting on 3D models, simulations and management systems, a Solution Architect and AI R&D, as external consultants.')
     detail = {
         'courses': ([T('Dal livello introduttivo per tutti ai laboratori pratici per ruolo', 'From an introduction for everyone to hands-on labs by role'),
                      T("Esempi presi dal vostro lavoro, non casi generici", 'Examples taken from your work, not generic cases'),
@@ -577,10 +577,10 @@ def page_consulting():
             T('No. Consulting e Enterprise si possono scegliere separatamente o insieme.', 'No. Consulting and Enterprise can be chosen separately or together.')),
            (T('Lavorate in sede o da remoto?', 'Do you work on site or remotely?'),
             T('Entrambe le cose, a seconda dell\'attività: lo concordiamo all\'inizio.', 'Both, depending on the work: we agree on it at the start.'))]
-    body = band('CuttingKnots Consulting', T('Competenze in più, <em>quando servono</em>.', 'Extra expertise, <em>when you need it</em>.'),
+    body = band('Cutting Knots Consulting', T('Competenze in più, <em>quando servono</em>.', 'Extra expertise, <em>when you need it</em>.'),
                 T("Formiamo i vostri team sull'intelligenza artificiale e vi affianchiamo come consulenti esterni su progetti tecnici, dall'architettura alla ricerca.",
                   'We train your teams on artificial intelligence and support you as external consultants on technical projects, from architecture to research.'),
-                f'<a class="btn btn-white" href="{mailto(T("CuttingKnots Consulting – richiesta", "CuttingKnots Consulting – enquiry"))}">{T("Chiedi una consulenza", "Ask for a consultation")}</a>')
+                f'<a class="btn btn-white" href="{mailto(T("Cutting Knots Consulting – richiesta", "Cutting Knots Consulting – enquiry"))}">{T("Chiedi una consulenza", "Ask for a consultation")}</a>')
     body += f'''<section class="sec">
   <div class="wrap stack">
     <p class="kicker">{T('Cosa facciamo', 'What we do')}</p>
@@ -600,7 +600,7 @@ def page_consulting():
     return head('consulting', title, desc, ld) + header('consulting') + '<main id="main" tabindex="-1">\n' + body + close() + '</main>\n' + footer()
 
 def page_small():
-    title = T('CuttingKnots Small Solutions · Siti web, e-commerce e microgestionali', 'CuttingKnots Small Solutions · Websites, e-commerce and small management apps')
+    title = T('Cutting Knots Small Solutions · Siti, e-commerce, gestionali', 'Cutting Knots Small Solutions · Websites, shops, small apps')
     desc = T('Siti web, e-commerce e microgestionali per realtà più piccole, con lo stesso metodo e la stessa cura dei progetti più grandi.',
              'Websites, e-commerce and small management apps for smaller organisations, with the same method and care as larger projects.')
     items = [(T('Siti web', 'Websites'), T('Veloci, leggibili da telefono, pronti per i motori di ricerca e facili da aggiornare.', 'Fast, readable on phones, ready for search engines and easy to update.')),
@@ -609,21 +609,21 @@ def page_small():
     how = [(T('Un preventivo chiaro', 'A clear quote'), T('Cosa facciamo, in quanto tempo e a che prezzo, prima di cominciare.', 'What we do, how long it takes and what it costs, before we start.')),
            (T('Lo stesso standard', 'The same standard'), T('Strumenti e cura dei progetti più grandi, in proporzione.', 'The tools and care of larger projects, in proportion.')),
            (T('Autonomi dopo il rilascio', 'Independent after launch'), T('Vi lasciamo in grado di aggiornare contenuti e dati da soli.', 'We leave you able to update content and data yourselves.'))]
-    body = band('CuttingKnots Small Solutions', T('Siti web, e-commerce e <em>microgestionali</em>.', 'Websites, e-commerce and <em>small management apps</em>.'),
+    body = band('Cutting Knots Small Solutions', T('Siti web, e-commerce e <em>microgestionali</em>.', 'Websites, e-commerce and <em>small management apps</em>.'),
                 T('Per associazioni, studi, negozi e piccole imprese che hanno bisogno di uno strumento digitale fatto bene, senza un grande progetto.',
                   'For associations, practices, shops and small businesses that need a well-made digital tool, without a big project.'),
-                f'<a class="btn btn-white" href="{mailto("CuttingKnots Small Solutions – " + T("richiesta", "enquiry"))}">{T("Chiedi un preventivo", "Ask for a quote")}</a>', 'small')
+                f'<a class="btn btn-white" href="{mailto("Cutting Knots Small Solutions – " + T("richiesta", "enquiry"))}">{T("Chiedi un preventivo", "Ask for a quote")}</a>', 'small')
     body += f'''<section class="sec">
   <div class="wrap stack">
-    <p class="kicker">{T('Cosa facciamo', 'What we do')}</p>
+    <h2 class="kicker">{T('Cosa facciamo', 'What we do')}</h2>
     <ul class="grid g3">{''.join(f'<li class="card"><h3>{a}</h3><p>{b}</p></li>' for a, b in items)}</ul>
   </div>
 </section>
 <section class="sec alt">
   <div class="wrap stack">
-    <p class="kicker">{T('Come lavoriamo', 'How we work')}</p>
+    <h2 class="kicker">{T('Come lavoriamo', 'How we work')}</h2>
     <ul class="grid g3">{''.join(f'<li class="card"><h3>{a}</h3><p>{b}</p></li>' for a, b in how)}</ul>
-    <p class="note">{T('Per progetti più grandi o integrati con i sistemi aziendali, guardate', 'For larger projects, or ones integrated with company systems, see')} <a href="{u('enterprise')}">CuttingKnots Enterprise</a>.</p>
+    <p class="note">{T('Per progetti più grandi o integrati con i sistemi aziendali, guardate', 'For larger projects, or ones integrated with company systems, see')} <a href="{u('enterprise')}">Cutting Knots Enterprise</a>.</p>
   </div>
 </section>
 '''
@@ -631,7 +631,7 @@ def page_small():
     return head('small', title, desc, ld) + header('small') + '<main id="main" tabindex="-1">\n' + body + close(T('Raccontateci cosa vi serve.', 'Tell us what you need.')) + '</main>\n' + footer()
 
 def page_prodotti():
-    title = T('Prodotti · CuttingKnots Enterprise', 'Products · CuttingKnots Enterprise')
+    title = T('Prodotti · Cutting Knots Enterprise', 'Products · Cutting Knots Enterprise')
     desc = T('Forma Simplifier, VIGIL e AIDA: a chi servono, cosa fanno oggi, a che punto sono e qual è il prossimo passo.',
              "Forma Simplifier, VIGIL and AIDA: who they're for, what they do today, where they stand and what comes next.")
     leg = ''.join(f'<li><b>{a}</b>{b}</li>' for a, b in stages())
@@ -647,7 +647,7 @@ def page_prodotti():
             <p class="subj">{T('Risultato di un singolo test su un robot KUKA, non una media.', 'Result of a single test on a KUKA robot, not an average.')}</p>'''
             if L == 'en': extra = extra.replace('−94,3%', '−94.3%')
         if p.get('img2'):
-            extra += f'<figure class="shot"><img src="{p["img2"]}" alt="{esc(p["cap2"])}" loading="lazy"><figcaption>{esc(p["cap2"])}</figcaption></figure>'
+            extra += f'<figure class="shot"><img src="{p["img2"]}" alt="{esc(p["cap2"])}" width="{p["w2"]}" height="{p["h2"]}" loading="lazy"><figcaption>{esc(p["cap2"])}</figcaption></figure>'
         secs += f'''<article class="pd" id="{p['id']}">
   <div class="stack" style="gap:14px">
     <p class="cat">{p['cat']}</p>{name}{f'<p class="former">{p["former"]}</p>' if p.get('former') else ''}
@@ -660,7 +660,7 @@ def page_prodotti():
   </div>
   <div class="stack" style="gap:14px">{fig}{extra}</div>
 </article>'''
-    body = band('CuttingKnots Enterprise', T('I nostri <em>prodotti</em>.', 'Our <em>products</em>.'),
+    body = band('Cutting Knots Enterprise', T('I nostri <em>prodotti</em>.', 'Our <em>products</em>.'),
                 T('Software nostro per problemi ricorrenti. Nessuno è ancora un prodotto in uso: per ognuno trovi a che punto è e cosa si può fare oggi.',
                   "Our own software for recurring problems. None is in general use yet: for each one you'll find where it stands and what can be done today."), cls='small')
     body += f'''<section class="sec" style="padding-bottom:0">
@@ -677,7 +677,7 @@ def page_prodotti():
     return head('prodotti', title, desc, ld) + header('prodotti') + '<main id="main" tabindex="-1">\n' + body + close() + '</main>\n' + footer()
 
 def page_esperienze():
-    title = T('Esperienze · CuttingKnots', 'Experience · CuttingKnots')
+    title = T('Esperienze · Cutting Knots', 'Experience · Cutting Knots')
     desc = T('Sei progetti realizzati dalle persone del team in automotive, sanità, eventi e ricerca: contesto, problema, intervento e risultato.',
              'Six projects delivered by people on the team in automotive, healthcare, events and research: context, problem, what was done and result.')
     cards = ''
@@ -690,8 +690,8 @@ def page_esperienze():
                 T('Sei progetti realizzati dalle persone del team, in automotive, sanità, eventi e ricerca.', 'Six projects delivered by people on our team, across automotive, healthcare, events and research.'), cls='small')
     body += f'''<section class="sec">
   <div class="wrap stack">
-    <p class="note">{T('Questi progetti sono stati realizzati in <strong>precedenti realtà lavorative</strong>: non sono clienti né progetti commissionati a CuttingKnots. Li mostriamo perché raccontano cosa sappiamo fare.',
-                       'These projects were delivered in <strong>previous roles</strong>: they are not CuttingKnots clients or commissions. We show them because they tell you what we can do.')}</p>
+    <p class="note">{T('Questi progetti sono stati realizzati in <strong>precedenti realtà lavorative</strong>: non sono clienti né progetti commissionati a Cutting Knots. Li mostriamo perché raccontano cosa sappiamo fare.',
+                       'These projects were delivered in <strong>previous roles</strong>: they are not Cutting Knots clients or commissions. We show them because they tell you what we can do.')}</p>
     <ul class="xps">{cards}</ul>
   </div>
 </section>
@@ -700,9 +700,9 @@ def page_esperienze():
     return head('esperienze', title, desc, ld) + header('esperienze') + '<main id="main" tabindex="-1">\n' + body + close() + '</main>\n' + footer()
 
 def page_chi():
-    title = T('Chi siamo · CuttingKnots', 'About · CuttingKnots')
-    desc = T('CuttingKnots è un partner tecnologico per le aziende: prodotti e progetti software con Enterprise, formazione e consulenza con Consulting. Tre fondatori, competenze complementari.',
-             'CuttingKnots is a technology partner for companies: software products and projects with Enterprise, training and consulting with Consulting. Three founders, complementary skills.')
+    title = T('Chi siamo · Cutting Knots', 'About · Cutting Knots')
+    desc = T('Cutting Knots è un partner tecnologico per le aziende: prodotti e progetti software, formazione e consulenza. Tre fondatori, competenze complementari.',
+             'Cutting Knots is a technology partner for companies: software products and projects, training and consulting. Three founders, complementary skills.')
     facts = [(T('Cosa facciamo', 'What we do'), T('Prodotti e progetti software · formazione e consulenza', 'Software products and projects · training and consulting')),
              (T('Dove ha lavorato il team', 'Where our team has worked'), T('Automotive, sanità, eventi, ricerca, banca e finanza', 'Automotive, healthcare, events, research, banking and finance')),
              (T('Come', 'How'), T("Dall'analisi all'implementazione, con un solo interlocutore", 'From analysis to implementation, with one point of contact'))]
@@ -714,11 +714,11 @@ def page_chi():
            (T('Sviluppo condiviso', 'Shared development'), T('Definiamo il percorso insieme al cliente e lo portiamo avanti con lui, passo dopo passo.', 'We define the path together with the client and move it forward with them, step by step.')),
            (T('Attenzione ai risultati', 'Focus on results'), T("Indicatori concordati fin dall'inizio, per sapere se il nodo è stato davvero tagliato.", 'Indicators agreed from the start, so you know whether the knot was really cut.'))]
     body = band(T('Chi siamo', 'About'), T('Il nome è il <em>metodo</em>.', 'The name is the <em>method</em>.'),
-                T('CuttingKnots è un partner tecnologico per le aziende: prodotti e progetti software, formazione e consulenza.', 'CuttingKnots is a technology partner for companies: software products and projects, training and consulting.'), cls='small')
+                T('Cutting Knots è un partner tecnologico per le aziende: prodotti e progetti software, formazione e consulenza.', 'Cutting Knots is a technology partner for companies: software products and projects, training and consulting.'), cls='small')
     body += f'''<section class="sec">
   <div class="wrap stack">
     <h2 class="h2">{T('Tagliare, non sciogliere un filo alla volta.', "Cut it, don't untie it thread by thread.")}</h2>
-    <p class="lead">{T('CuttingKnots si scrive tutto attaccato e si legge «Cutting Knots»: tagliare i nodi. È il nome della nostra azienda di software, intelligenza artificiale e consulenza, con le divisioni CuttingKnots Enterprise, CuttingKnots Consulting e CuttingKnots Small Solutions.', 'CuttingKnots is written as one word and read “Cutting Knots”: cutting knots. It is the name of our software, artificial intelligence and consulting company, with the divisions CuttingKnots Enterprise, CuttingKnots Consulting and CuttingKnots Small Solutions.')}</p>
+    <p class="lead">{T('Cutting Knots vuol dire «tagliare i nodi». È il nome della nostra azienda di software, intelligenza artificiale e consulenza, con le divisioni Cutting Knots Enterprise, Cutting Knots Consulting e Cutting Knots Small Solutions.', 'Cutting Knots is the name of our software, artificial intelligence and consulting company, with the divisions Cutting Knots Enterprise, Cutting Knots Consulting and Cutting Knots Small Solutions.')}</p>
     <p class="lead">{T("In ogni azienda c'è un nodo: un processo fatto a mano da anni, due sistemi che non si parlano, dati sparsi in troppi posti. Spesso si prova a scioglierlo un filo alla volta, e passano mesi.", "Every company has a knot: a process done by hand for years, two systems that don't talk, data spread across too many places. People often try to untie it one thread at a time, and months go by.")}</p>
     <p class="lead">{T("Noi partiamo dagli obiettivi dell'azienda e scegliamo il percorso più netto: sviluppare una soluzione, integrare le tecnologie giuste o adottarne una esistente. E restiamo al vostro fianco dall'analisi iniziale all'implementazione.", 'We start from the company\'s goals and choose the cleanest path: build a solution, integrate the right technologies or adopt an existing one. And we stay with you from first analysis to implementation.')}</p>
     <ul class="grid g3" style="margin-top:12px">{''.join(f'<li class="card"><p class="kicker">{a}</p><h3>{b}</h3></li>' for a, b in facts)}</ul>
@@ -745,12 +745,12 @@ def page_chi():
     return head('chi', title, desc, ld) + header('chi') + '<main id="main" tabindex="-1">\n' + body + close() + '</main>\n' + footer()
 
 def page_contatti():
-    title = T('Contatti · CuttingKnots', 'Contact · CuttingKnots')
+    title = T('Contatti · Cutting Knots', 'Contact · Cutting Knots')
     desc = T('Scrivete a info@cuttingknots.com per un progetto, un corso, una consulenza o uno dei nostri prodotti. Rispondiamo entro due giorni lavorativi.',
              'Write to info@cuttingknots.com about a project, a course, a consultation or one of our products. We reply within two working days.')
-    topics = [('CuttingKnots Enterprise', T('CuttingKnots Enterprise – nuovo progetto', 'CuttingKnots Enterprise – new project'), T('Un prodotto o un progetto su misura', 'A product or a custom project')),
-              ('CuttingKnots Consulting', T('CuttingKnots Consulting – richiesta', 'CuttingKnots Consulting – enquiry'), T('Un corso o una consulenza', 'A course or a consultation')),
-              ('CuttingKnots Small Solutions', 'CuttingKnots Small Solutions – ' + T('richiesta', 'enquiry'), T('Un sito, un e-commerce o un microgestionale', 'A website, an online shop or a small app'))]
+    topics = [('Cutting Knots Enterprise', T('Cutting Knots Enterprise – nuovo progetto', 'Cutting Knots Enterprise – new project'), T('Un prodotto o un progetto su misura', 'A product or a custom project')),
+              ('Cutting Knots Consulting', T('Cutting Knots Consulting – richiesta', 'Cutting Knots Consulting – enquiry'), T('Un corso o una consulenza', 'A course or a consultation')),
+              ('Cutting Knots Small Solutions', 'Cutting Knots Small Solutions – ' + T('richiesta', 'enquiry'), T('Un sito, un e-commerce o un microgestionale', 'A website, an online shop or a small app'))]
     topics += [(p['name'], p['subj'], stages()[p['stage'] - 1][0]) for p in products()]
     tl = ''.join(f'<li class="card" style="padding:18px 20px;gap:4px"><a class="more" style="min-height:0" href="{mailto(s)}">{n} {ARROW}</a><p style="font-size:14px">{d}</p></li>' for n, s, d in topics)
     what = [(T('Cosa fate', 'What you do'), T('Il settore e quante persone sono coinvolte nel processo.', 'Your sector and how many people are involved in the process.')),
@@ -784,7 +784,7 @@ def page_contatti():
 def page_404():
     global L
     L = 'it'
-    title = 'CuttingKnots · Pagina non trovata'
+    title = 'Cutting Knots · Pagina non trovata'
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": title}
     h = head('home', title, 'La pagina che cerchi non c\'è.', ld).replace(f'<link rel="canonical" href="{SITE}/">\n', '').replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta name="robots" content="noindex">')
     body = band('404', 'Questo nodo <em>non esiste</em>.', 'La pagina che cerchi non c\'è. <span lang="en">This page doesn\'t exist.</span>',
@@ -825,17 +825,17 @@ def llms():
     L = 'en'
     prods = '\n'.join(f"  - {p['name']} — {stages()[p['stage']-1][0].lower()}. {p['short']}" for p in products())
     L = 'it'
-    return f'''# CuttingKnots
+    return f'''# Cutting Knots
 
-> CuttingKnots (also written "Cutting Knots") is an Italian technology company for businesses, with its website at https://www.cuttingknots.com, organised in divisions. CuttingKnots Enterprise builds its own software products and custom software and AI projects. CuttingKnots Consulting offers AI courses for company teams, industrial consulting (3D models, simulations, management systems), Solution Architect services and end-to-end AI research and development, always as external consultants. Enterprise and Consulting can be chosen separately or together. CuttingKnots Small Solutions builds websites, e-commerce and small management apps for smaller organisations. The site is bilingual (Italian at /, English at /en). Contact: {EMAIL} (reply within two working days). LinkedIn: {LINKEDIN}
+> Cutting Knots (two words; the domain is cuttingknots.com, so it is sometimes written "Cutting Knots") is an Italian technology company for businesses, with its website at https://www.cuttingknots.com, organised in divisions. Cutting Knots Enterprise builds its own software products and custom software and AI projects. Cutting Knots Consulting offers AI courses for company teams, industrial consulting (3D models, simulations, management systems), Solution Architect services and end-to-end AI research and development, always as external consultants. Enterprise and Consulting can be chosen separately or together. Cutting Knots Small Solutions builds websites, e-commerce and small management apps for smaller organisations. The site is bilingual (Italian at /, English at /en). Contact: {EMAIL} (reply within two working days). LinkedIn: {LINKEDIN}
 
 Key facts, stated as on the site:
-- Name: CuttingKnots, one word, read "Cutting Knots". It is a company name, unrelated to knot theory, knot-tying or the "cut the knot" idiom. Official website: https://www.cuttingknots.com · LinkedIn: {LINKEDIN} · Email: {EMAIL}
+- Name: Cutting Knots, two words, like "Bending Spoons". It is a company name, unrelated to knot theory, knot-tying or the "cut the knot" idiom. Official website: https://www.cuttingknots.com · LinkedIn: {LINKEDIN} · Email: {EMAIL}
 - Custom projects address: manual and repetitive work (automation, also with AI); systems that don't talk (ERP, PLM and business systems such as SAP and Teamcenter); processes no tool covers (custom web applications and Mendix low-code); data that is hard to query (plain-language questions to databases, conversion to standards such as OMOP).
 - Products and real status (none is in general use yet):
 {prods}
   - Forma Simplifier test on a KUKA robot model: 55.98 MB to 3.21 MB (−94.3%) in 86.1 s. Single test, not an average.
-- Experience: six projects delivered by people on the team in previous roles (not CuttingKnots clients or commissions), in automotive, healthcare, events and research. Team background also includes banking and finance projects.
+- Experience: six projects delivered by people on the team in previous roles (not Cutting Knots clients or commissions), in automotive, healthcare, events and research. Team background also includes banking and finance projects.
 
 ## Pages (English)
 - [Home](https://www.cuttingknots.com/en): the divisions, products, FAQ and contact

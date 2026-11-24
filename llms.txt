@@ -1,16 +1,16 @@
-# CuttingKnots
+# Cutting Knots
 
-> CuttingKnots (also written "Cutting Knots") is an Italian technology company for businesses, with its website at https://www.cuttingknots.com, organised in divisions. CuttingKnots Enterprise builds its own software products and custom software and AI projects. CuttingKnots Consulting offers AI courses for company teams, industrial consulting (3D models, simulations, management systems), Solution Architect services and end-to-end AI research and development, always as external consultants. Enterprise and Consulting can be chosen separately or together. CuttingKnots Small Solutions builds websites, e-commerce and small management apps for smaller organisations. The site is bilingual (Italian at /, English at /en). Contact: info@cuttingknots.com (reply within two working days). LinkedIn: https://www.linkedin.com/company/cutting-knots
+> Cutting Knots (two words; the domain is cuttingknots.com, so it is sometimes written "Cutting Knots") is an Italian technology company for businesses, with its website at https://www.cuttingknots.com, organised in divisions. Cutting Knots Enterprise builds its own software products and custom software and AI projects. Cutting Knots Consulting offers AI courses for company teams, industrial consulting (3D models, simulations, management systems), Solution Architect services and end-to-end AI research and development, always as external consultants. Enterprise and Consulting can be chosen separately or together. Cutting Knots Small Solutions builds websites, e-commerce and small management apps for smaller organisations. The site is bilingual (Italian at /, English at /en). Contact: info@cuttingknots.com (reply within two working days). LinkedIn: https://www.linkedin.com/company/cutting-knots
 
 Key facts, stated as on the site:
-- Name: CuttingKnots, one word, read "Cutting Knots". It is a company name, unrelated to knot theory, knot-tying or the "cut the knot" idiom. Official website: https://www.cuttingknots.com · LinkedIn: https://www.linkedin.com/company/cutting-knots · Email: info@cuttingknots.com
+- Name: Cutting Knots, two words, like "Bending Spoons". It is a company name, unrelated to knot theory, knot-tying or the "cut the knot" idiom. Official website: https://www.cuttingknots.com · LinkedIn: https://www.linkedin.com/company/cutting-knots · Email: info@cuttingknots.com
 - Custom projects address: manual and repetitive work (automation, also with AI); systems that don't talk (ERP, PLM and business systems such as SAP and Teamcenter); processes no tool covers (custom web applications and Mendix low-code); data that is hard to query (plain-language questions to databases, conversion to standards such as OMOP).
 - Products and real status (none is in general use yet):
   - Forma Simplifier — pilot. Lighter 3D STEP models, with shape and dimensions intact.
   - VIGIL — prototype. From line video to cycles, stops and OEE.
   - AIDA — in development. Email, notes and appointments turned into a plan for the day.
   - Forma Simplifier test on a KUKA robot model: 55.98 MB to 3.21 MB (−94.3%) in 86.1 s. Single test, not an average.
-- Experience: six projects delivered by people on the team in previous roles (not CuttingKnots clients or commissions), in automotive, healthcare, events and research. Team background also includes banking and finance projects.
+- Experience: six projects delivered by people on the team in previous roles (not Cutting Knots clients or commissions), in automotive, healthcare, events and research. Team background also includes banking and finance projects.
 
 ## Pages (English)
 - [Home](https://www.cuttingknots.com/en): the divisions, products, FAQ and contact

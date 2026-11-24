@@ -1,4 +1,4 @@
-# CuttingKnots — search engines and AI assistants are welcome to read and cite the site.
+# Cutting Knots — search engines and AI assistants are welcome to read and cite the site.
 User-agent: *
 Allow: /
 Disallow: /villaggio

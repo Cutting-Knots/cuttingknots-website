@@ -1,6 +1,6 @@
 # cuttingknots-website
 
-Sito statico di CuttingKnots, pubblicato su Vercel.
+Sito statico di Cutting Knots, pubblicato su Vercel.
 
 Le pagine si generano con `python3 src/build.py` (dalla radice del repository):
 testi, struttura e dati per Google stanno in `src/build.py`, stili e script in
