@@ -371,7 +371,7 @@ def page_home():
     desc = T("Cutting Knots: prodotti e progetti software con Cutting Knots Enterprise, corsi sull'intelligenza artificiale e consulenza tecnica con Cutting Knots Consulting.",
              'Cutting Knots: software products and projects with Cutting Knots Enterprise, AI courses and technical consulting with Cutting Knots Consulting.')
     faq = home_faq()
-    ld = {"@context": "https://schema.org", "@graph": [org(), {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "Cutting Knots", "inLanguage": ["it", "en"], "publisher": {"@id": f"{SITE}/#org"}}]
+    ld = {"@context": "https://schema.org", "@graph": [org(), {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "Cutting Knots", "alternateName": ["CuttingKnots", "cuttingknots.com"], "inLanguage": ["it", "en"], "publisher": {"@id": f"{SITE}/#org"}}]
           + webpage('home', title, desc) + [faq_ld(faq, 'home')]}
     pre = '<link rel="preload" as="image" href="/img/horizon-1200.jpg" imagesrcset="/img/horizon-1200.jpg 1200w, /img/horizon-2400.jpg 2400w" imagesizes="100vw" fetchpriority="high">\n'
     cons = ''.join(f'<li>{ico(p)}<div><h3>{t}</h3><p>{d}</p></div></li>' for _, p, t, d in consulting_items())
@@ -380,7 +380,7 @@ def page_home():
   <div class="pin">
     <img class="sky" src="/img/horizon-1200.jpg" srcset="/img/horizon-1200.jpg 1200w, /img/horizon-2400.jpg 2400w" sizes="100vw" alt="" fetchpriority="high">
     <div class="wrap copy">
-      <p class="eyebrow">{T('Software, intelligenza artificiale, consulenza', 'Software, artificial intelligence, consulting')}</p>
+      <p class="eyebrow">{T('Cutting Knots · software, intelligenza artificiale, consulenza', 'Cutting Knots · software, artificial intelligence, consulting')}</p>
       <h1>{T('Tagliamo i nodi che rallentano la tua azienda.', 'We cut the knots that slow your company down.')}</h1>
       <p class="sub">{T("Prodotti e progetti software con Cutting Knots Enterprise. Formazione sull'intelligenza artificiale e consulenza con Cutting Knots Consulting.", 'Software products and projects with Cutting Knots Enterprise. AI training and consulting with Cutting Knots Consulting.')}</p>
     </div>
